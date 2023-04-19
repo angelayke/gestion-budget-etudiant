@@ -9,6 +9,8 @@ import { StorageService } from './services/storage.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
+import { RefreshInterceptor } from './interceptors/refresh.interceptor';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
   providers: [
     StorageService,
     TokenService,
+    AuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BaseUrlInterceptor,
@@ -33,6 +36,11 @@ import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
       useClass: TokenInterceptor,
       multi: true
     },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RefreshInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

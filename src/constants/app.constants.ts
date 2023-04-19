@@ -5,6 +5,9 @@ export const app = {
 			login: "/auth/login",
 			register: "/auth/register",
 			refresh: "/auth/refresh",
+		},
+		codes: {
+			unauthorized: 401,
 		}
 	}
 }
