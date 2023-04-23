@@ -1,4 +1,4 @@
-type Expense =
+export type Expense =
   {
       _id: string;
       description?: string;
