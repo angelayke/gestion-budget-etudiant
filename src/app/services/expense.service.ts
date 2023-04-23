@@ -1,30 +1,19 @@
-import { HttpClient} from '@angular/common/http';
-import { Injectable} from '@angular/core';
-import { AuthService } from './auth.service';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { app } from 'src/constants/app.constants';
 import { Expense } from '../interfaces/expense.interface';
 
-
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class ExpenseService  {
-
-  constructor(private http:HttpClient, private authService: AuthService ) { }
+export class ExpenseService {
+  constructor(private http: HttpClient) {}
 
   getExpenses(): Observable<Expense[]> {
-          this.authService.$isAuthenticated;
-           return this.http.get<Expense[]>(`${app.http}/expenses`);
-
+    return this.http.get<Expense[]>(`/expenses`);
   }
 
   getExpense(id: string): Observable<Expense> {
-        this.authService.$isAuthenticated;
-        return this.http.get<Expense>(`${app.http}/expenses/${id}`);
-    }
-
-
-
+    return this.http.get<Expense>(`/expenses/${id}`);
+  }
 }
