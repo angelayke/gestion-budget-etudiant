@@ -1,19 +1,25 @@
 import { Injectable } from '@angular/core';
-
-
-const { passwordStrength } = require('check-password-strength')
-
+import { passwordStrength } from 'check-password-strength';
+import { PasswordStrength } from '../interfaces/password-strength.interfaces';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PasswordService {
+  constructor() {}
 
-  constructor() { }
+  checkPasswordStrength(password: string) {
+    const result = passwordStrength(password);
 
-  checkPasswordStrength(password: string): any {
-    const result = passwordStrength((password));
-      return { score: result.score, feedback: result.feedback };
+    switch (result.id) {
+      case 0:
+        return PasswordStrength.TooWeak;
+      case 1:
+        return PasswordStrength.Weak;
+      case 2:
+        return PasswordStrength.Medium;
+      default:
+        return PasswordStrength.Strong;
+    }
   }
-
 }
