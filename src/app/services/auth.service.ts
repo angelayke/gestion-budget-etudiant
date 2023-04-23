@@ -46,7 +46,7 @@ export class AuthService {
       });
   }
 
-  async refreshToken() {
+  refreshToken() {
     const user = this.storageService.getItem<User>(this.key);
     if (!user) {
       this.logout();

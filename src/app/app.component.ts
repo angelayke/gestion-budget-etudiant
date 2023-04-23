@@ -13,10 +13,10 @@ export class AppComponent {
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   ngOnInit() {
-    // this.authService.login({
-    //   username: 'mathieu.theriault89@me.com',
-    //   password: 'a1032010',
-    // });
+    this.authService.login({
+      username: 'mathieu.theriault89@me.com',
+      password: 'a1032010',
+    });
     this.http.get('/expenses/all/643dc744faad3a88eab7e7ee').subscribe((res) => {
       console.log(res);
     });

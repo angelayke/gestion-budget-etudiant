@@ -11,6 +11,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
 import { AuthService } from './services/auth.service';
 import { TokenInjectorService } from './services/token-injector.service';
+import { RefreshTokenInterceptor } from './interceptors/refresh-token.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,6 +34,11 @@ import { TokenInjectorService } from './services/token-injector.service';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RefreshTokenInterceptor,
       multi: true,
     },
   ],
