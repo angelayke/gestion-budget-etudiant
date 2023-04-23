@@ -15,11 +15,13 @@ export class ExpenseService  {
   constructor(private http:HttpClient, private authService: AuthService ) { }
 
   getExpenses(): Observable<Expense[]> {
+          this.authService.$isAuthenticated;
            return this.http.get<Expense[]>(`${app.http}/expenses`);
 
   }
 
   getExpense(id: string): Observable<Expense> {
+        this.authService.$isAuthenticated;
         return this.http.get<Expense>(`${app.http}/expenses/${id}`);
     }
 
