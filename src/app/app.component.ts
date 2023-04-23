@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { HttpClient } from '@angular/common/http';
+import { PasswordService } from './services/password.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'gestion-budget-etudiant';
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient, private authService: AuthService, private passwordService: PasswordService) {}
 
   ngOnInit() {
     // this.authService.login({
@@ -25,5 +26,12 @@ export class AppComponent {
     this.http.get('/expenses/all/643dc744faad3a88eab7e7ee').subscribe((res) => {
       console.log(res);
     });
+
+
+
+
+
+
+
   }
 }
