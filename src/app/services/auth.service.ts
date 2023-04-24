@@ -55,21 +55,26 @@ export class AuthService {
 
     const { username, refresh_token } = user;
 
-    return this.http
-      .post<UserLogin | HttpError>(app.http.auth.refresh, {
+    const handler = this.http.post<UserLogin | HttpError>(
+      app.http.auth.refresh,
+      {
         refresh_token,
         username,
-      })
-      .subscribe((res) => {
-        if ('statusCode' in res) {
-          this.logout();
-          return;
-        }
+      }
+    );
 
-        this.tokenService.updateToken(res.token);
-        this.storageService.setItem(this.key, res.user);
-        this._isAuthenticated.next(true);
-      });
+    handler.subscribe((res) => {
+      if ('statusCode' in res) {
+        this.logout();
+        return;
+      }
+
+      this.tokenService.updateToken(res.token);
+      this.storageService.setItem(this.key, res.user);
+      this._isAuthenticated.next(true);
+    });
+
+    return handler;
   }
 
   logout() {
