@@ -1,0 +1,9 @@
+.floating-calculator-button {
+  &__container {
+    display: block;
+    position: fixed;
+    bottom: 4rem;
+    right: 2rem;
+    z-index: 10;
+  }
+}

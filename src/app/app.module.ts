@@ -11,14 +11,21 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
 import { AuthService } from './services/auth.service';
 import { TokenInjectorService } from './services/token-injector.service';
+import { FloatingCalculatorButtonComponent } from './components/floating-calculator-button/floating-calculator-button.component';
+
+// Material
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FloatingCalculatorButtonComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   providers: [
     StorageService,
