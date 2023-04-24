@@ -10,4 +10,9 @@ import { PasswordService } from './services/password.service';
 })
 export class AppComponent {
   title = 'gestion-budget-etudiant';
+
+
+
+  constructor() {}
+
 }
