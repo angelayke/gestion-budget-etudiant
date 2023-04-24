@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent {
   title = 'gestion-budget-etudiant';
 
+
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   ngOnInit() {
@@ -26,4 +27,7 @@ export class AppComponent {
       console.log(res);
     });
   }
+
+  constructor() {}
+
 }
