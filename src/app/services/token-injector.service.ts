@@ -13,13 +13,8 @@ export class TokenInjectorService {
   }
 
   injectToken(request: HttpRequest<any>) {
-    console.log('injectToken', this.userToken);
-    const r = request.clone({
+    return request.clone({
       headers: request.headers.set('Authorization', `Bearer ${this.userToken}`),
     });
-
-    console.log('injectToken', r);
-
-    return r;
   }
 }
