@@ -11,16 +11,15 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
 import { AuthService } from './services/auth.service';
 import { TokenInjectorService } from './services/token-injector.service';
-import { RegisterComponent } from './register/register.component';
 
 @NgModule({
-  declarations: [AppComponent, RegisterComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     StorageService,
