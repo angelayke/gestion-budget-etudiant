@@ -14,7 +14,14 @@ export class ExpenseIncomeService {
     private readonly expenseService: ExpenseService,
     private readonly incomeService: IncomeService,
     private readonly filterService: FiltersService
-  ) {
+  ) {}
+
+  private items: BehaviorSubject<(Expense | Income)[]> = new BehaviorSubject<
+    (Expense | Income)[]
+  >([]);
+  public items$: Observable<(Expense | Income)[]> = this.items.asObservable();
+
+  getAllIncomesExpenses() {
     this.expenseService.getExpenses().subscribe((data) => {
       const value = this.items.getValue().concat(data);
       const sortedValue = this.filterService.sortByDateDesc(value);
@@ -26,12 +33,9 @@ export class ExpenseIncomeService {
       const sortedValue = this.filterService.sortByDateDesc(value);
       this.items.next(sortedValue);
     });
-  }
 
-  private items: BehaviorSubject<(Expense | Income)[]> = new BehaviorSubject<
-    (Expense | Income)[]
-  >([]);
-  public items$: Observable<(Expense | Income)[]> = this.items.asObservable();
+    return this.items$;
+  }
 
   // getExpensesIncomes(): Observable<(Expense|Income)[]> {
   //   return new Observable(observer => {
