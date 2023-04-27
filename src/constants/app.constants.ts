@@ -1,6 +1,6 @@
 export const app = {
   http: {
-    baseUrl: 'http://localhost:3000',
+    baseUrl: 'https://aec-backend.herokuapp.com',
     auth: {
       login: '/auth/login',
       register: '/auth/register',
