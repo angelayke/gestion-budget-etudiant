@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ExpenseIncomeService } from './services/expense-income.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'gestion-budget-etudiant';
 
-  constructor() {}
+  constructor(private expenseIncomeService: ExpenseIncomeService) {}
+
+
+  ngOnInit() {
+    this.expenseIncomeService.getExpensesIncomes().subscribe(
+      (data) => {
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
