@@ -34,16 +34,33 @@ import { DepensesMoisGraphiqueComponent } from './components/depenses-mois-graph
 import { ProfilComponent } from './components/profil/profil.component';
 import { ProfilEditComponent } from './components/profil-edit/profil-edit.component';
 import { LiensutilesComponent } from './components/liensutiles/liensutiles.component';
-
+import { FiltersService } from './services/filters.service';
 
 @NgModule({
-  declarations: [AppComponent, ConnexionComponent, SinscrireComponent, SeconnecterComponent, 
-                 AccueilComponent, HeaderComponent, FooterComponent, NavComponent, CalculatriceComponent, 
-                 DepensesComponent, RevenusComponent, RevenusSemaineComponent, DepensesSemaineComponent,
-                 RevenusMoisComponent, DepensesMoisComponent, RevenusSemaineGraphiqueComponent,
-                 DepensesSemaineGraphiqueComponent, RevenusMoisGraphiqueComponent, DepensesMoisGraphiqueComponent,
-                 ProfilComponent, ProfilEditComponent, LiensutilesComponent   
-                ],
+  declarations: [
+    AppComponent,
+    ConnexionComponent,
+    SinscrireComponent,
+    SeconnecterComponent,
+    AccueilComponent,
+    HeaderComponent,
+    FooterComponent,
+    NavComponent,
+    CalculatriceComponent,
+    DepensesComponent,
+    RevenusComponent,
+    RevenusSemaineComponent,
+    DepensesSemaineComponent,
+    RevenusMoisComponent,
+    DepensesMoisComponent,
+    RevenusSemaineGraphiqueComponent,
+    DepensesSemaineGraphiqueComponent,
+    RevenusMoisGraphiqueComponent,
+    DepensesMoisGraphiqueComponent,
+    ProfilComponent,
+    ProfilEditComponent,
+    LiensutilesComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -56,6 +73,7 @@ import { LiensutilesComponent } from './components/liensutiles/liensutiles.compo
     TokenService,
     TokenInjectorService,
     AuthService,
+    FiltersService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BaseUrlInterceptor,
