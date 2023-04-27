@@ -34,22 +34,44 @@ import { DepensesMoisGraphiqueComponent } from './components/depenses-mois-graph
 import { ProfilComponent } from './components/profil/profil.component';
 import { ProfilEditComponent } from './components/profil-edit/profil-edit.component';
 import { LiensutilesComponent } from './components/liensutiles/liensutiles.component';
+import { FloatingCalculatorButtonComponent } from './components/floating-calculator-button/floating-calculator-button.component';
 
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
-  declarations: [AppComponent, ConnexionComponent, SinscrireComponent, SeconnecterComponent, 
-                 AccueilComponent, HeaderComponent, FooterComponent, NavComponent, CalculatriceComponent, 
-                 DepensesComponent, RevenusComponent, RevenusSemaineComponent, DepensesSemaineComponent,
-                 RevenusMoisComponent, DepensesMoisComponent, RevenusSemaineGraphiqueComponent,
-                 DepensesSemaineGraphiqueComponent, RevenusMoisGraphiqueComponent, DepensesMoisGraphiqueComponent,
-                 ProfilComponent, ProfilEditComponent, LiensutilesComponent   
-                ],
+  declarations: [
+    AppComponent,
+    ConnexionComponent,
+    SinscrireComponent,
+    SeconnecterComponent,
+    AccueilComponent,
+    HeaderComponent,
+    FooterComponent,
+    NavComponent,
+    CalculatriceComponent,
+    DepensesComponent,
+    RevenusComponent,
+    RevenusSemaineComponent,
+    DepensesSemaineComponent,
+    RevenusMoisComponent,
+    DepensesMoisComponent,
+    RevenusSemaineGraphiqueComponent,
+    DepensesSemaineGraphiqueComponent,
+    RevenusMoisGraphiqueComponent,
+    DepensesMoisGraphiqueComponent,
+    ProfilComponent,
+    ProfilEditComponent,
+    LiensutilesComponent,
+    FloatingCalculatorButtonComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   providers: [
     StorageService,
