@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ExpenseIncomeService } from './services/expense-income.service';
+import { FakeAuthService } from './services/fake-auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +10,7 @@ import { ExpenseIncomeService } from './services/expense-income.service';
 export class AppComponent {
   title = 'gestion-budget-etudiant';
 
-  constructor(private expenseIncomeService: ExpenseIncomeService) {}
+  constructor() {}
 
-
-  ngOnInit() {
-    this.expenseIncomeService.getExpensesIncomes().subscribe(
-      (data) => {
-        console.log(data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+  ngOnInit() {}
 }

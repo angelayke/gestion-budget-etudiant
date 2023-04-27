@@ -19,22 +19,30 @@ export class ExpenseIncomeService {
   private items: BehaviorSubject<(Expense | Income)[]> = new BehaviorSubject<
     (Expense | Income)[]
   >([]);
-  public items$: Observable<(Expense | Income)[]> = this.items.asObservable();
+  private items$: Observable<(Expense | Income)[]> = this.items.asObservable();
+
+  private expensesIncomes: BehaviorSubject<(Expense | Income)[]> =
+    new BehaviorSubject<(Expense | Income)[]>([]);
+  public expensesIncomes$: Observable<(Expense | Income)[]> =
+    this.expensesIncomes.asObservable();
 
   getAllIncomesExpenses() {
     this.expenseService.getExpenses().subscribe((data) => {
       const value = this.items.getValue().concat(data);
-      const sortedValue = this.filterService.sortByDateDesc(value);
-      this.items.next(sortedValue);
+      this.items.next(value);
     });
 
     this.incomeService.getIncomes().subscribe((data) => {
       const value = this.items.getValue().concat(data);
-      const sortedValue = this.filterService.sortByDateDesc(value);
-      this.items.next(sortedValue);
+      this.items.next(value);
     });
 
-    return this.items$;
+    this.items$.subscribe((data) => {
+      const value = this.filterService.sortByDateDesc(data);
+      this.expensesIncomes.next(value);
+    });
+
+    return this.expensesIncomes$;
   }
 
   // getExpensesIncomes(): Observable<(Expense|Income)[]> {
