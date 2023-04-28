@@ -35,6 +35,9 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { ProfilEditComponent } from './components/profil-edit/profil-edit.component';
 import { LiensutilesComponent } from './components/liensutiles/liensutiles.component';
 import { FiltersService } from './services/filters.service';
+import { FloatingCalculatorButtonComponent } from './components/floating-calculator-button/floating-calculator-button.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -60,6 +63,7 @@ import { FiltersService } from './services/filters.service';
     ProfilComponent,
     ProfilEditComponent,
     LiensutilesComponent,
+    FloatingCalculatorButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +71,8 @@ import { FiltersService } from './services/filters.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatButtonModule,
+    MatIconModule,
   ],
   providers: [
     StorageService,
