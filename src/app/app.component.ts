@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ExpenseIncomeService } from './services/expense-income.service';
+import { FakeAuthService } from './services/fake-auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +11,6 @@ export class AppComponent {
   title = 'gestion-budget-etudiant';
 
   constructor() {}
+
+  ngOnInit() {}
 }

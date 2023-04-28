@@ -26,6 +26,11 @@ export class AuthService {
   private _isAuthenticated = new BehaviorSubject<boolean>(false);
   $isAuthenticated = this._isAuthenticated.asObservable();
 
+  get userId() {
+    const user = this.storageService.getItem<User>(this.key);
+    return user?._id;
+  }
+
   login(loginUserDto: LoginUserDto) {
     this.http
       .post<UserLogin>(app.http.auth.login, loginUserDto)

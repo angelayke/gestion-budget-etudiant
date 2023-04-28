@@ -34,11 +34,12 @@ import { DepensesMoisGraphiqueComponent } from './components/depenses-mois-graph
 import { ProfilComponent } from './components/profil/profil.component';
 import { ProfilEditComponent } from './components/profil-edit/profil-edit.component';
 import { LiensutilesComponent } from './components/liensutiles/liensutiles.component';
+import { FiltersService } from './services/filters.service';
 import { FloatingCalculatorButtonComponent } from './components/floating-calculator-button/floating-calculator-button.component';
-
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { CalculatorService } from './services/calculator.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,7 +80,9 @@ import { CalculatorService } from './services/calculator.service';
     TokenService,
     TokenInjectorService,
     AuthService,
+    FiltersService,
     CalculatorService,
+
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BaseUrlInterceptor,
