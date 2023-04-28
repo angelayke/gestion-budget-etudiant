@@ -38,6 +38,7 @@ import { FloatingCalculatorButtonComponent } from './components/floating-calcula
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { CalculatorService } from './services/calculator.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,6 +79,7 @@ import { MatIconModule } from '@angular/material/icon';
     TokenService,
     TokenInjectorService,
     AuthService,
+    CalculatorService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BaseUrlInterceptor,
