@@ -44,6 +44,7 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { ProfilEditComponent } from './components/profil-edit/profil-edit.component';
 import { LiensutilesComponent } from './components/liensutiles/liensutiles.component';
 import { FloatingCalculatorButtonComponent } from './components/floating-calculator-button/floating-calculator-button.component';
+import { MainComponent } from './main/main.component';
 
 /* Modules */
 import { MatButtonModule } from '@angular/material/button';
@@ -77,6 +78,7 @@ import {MatMenuModule} from '@angular/material/menu';
     ProfilEditComponent,
     LiensutilesComponent,
     FloatingCalculatorButtonComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
