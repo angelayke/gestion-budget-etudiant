@@ -1,3 +1,24 @@
+@import '../../../sass/variables';
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.mat-toolbar {
+    background-color: $header;
+    color: $white;
+}
+
+img{
+    max-width: 60px;
+    margin: 0.2em;
+}
+
+.logo{
+    font-family: $font-logo;
+    font-size: 28px;
+}
+
 @media screen and (min-width: 1024px) {
     
 }

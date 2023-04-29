@@ -1,18 +1,27 @@
+/* Base angular */ 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+
+/* services */
 import { TokenService } from './services/token.service';
 import { StorageService } from './services/storage.service';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { TokenInterceptor } from './interceptors/token.interceptor';
-import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
 import { AuthService } from './services/auth.service';
 import { TokenInjectorService } from './services/token-injector.service';
+import { CalculatorService } from './services/calculator.service';
+import { FiltersService } from './services/filters.service';
+
+/* *Interceptior */
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
 import { RefreshTokenInterceptor } from './interceptors/refresh-token.interceptor';
 
+/* components */
 import { ConnexionComponent } from './components/connexion/connexion.component';
 import { SinscrireComponent } from './components/sinscrire/sinscrire.component';
 import { SeconnecterComponent } from './components/seconnecter/seconnecter.component';
@@ -34,11 +43,13 @@ import { DepensesMoisGraphiqueComponent } from './components/depenses-mois-graph
 import { ProfilComponent } from './components/profil/profil.component';
 import { ProfilEditComponent } from './components/profil-edit/profil-edit.component';
 import { LiensutilesComponent } from './components/liensutiles/liensutiles.component';
-import { FiltersService } from './services/filters.service';
 import { FloatingCalculatorButtonComponent } from './components/floating-calculator-button/floating-calculator-button.component';
+
+/* Modules */
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { CalculatorService } from './services/calculator.service';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [
@@ -74,6 +85,7 @@ import { CalculatorService } from './services/calculator.service';
     FormsModule,
     MatButtonModule,
     MatIconModule,
+    MatToolbarModule
   ],
   providers: [
     StorageService,
