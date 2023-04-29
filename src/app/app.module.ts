@@ -49,6 +49,7 @@ import { FloatingCalculatorButtonComponent } from './components/floating-calcula
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { MainComponent } from './main/main.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     ProfilEditComponent,
     LiensutilesComponent,
     FloatingCalculatorButtonComponent,
+    MainComponent,
   ],
   imports: [
     BrowserModule,
