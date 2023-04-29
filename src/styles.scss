@@ -21,3 +21,9 @@ section{
   padding-top: 5em;
   padding-bottom: 5em;
 }
+
+.flex-middle{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
