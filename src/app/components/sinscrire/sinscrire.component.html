@@ -1,1 +1,92 @@
-<p>sinscrire works!</p>
+<section>
+  <div class="container">
+    <div class="flex-middle en-tete">
+      <img src="../../../assets/images/logo_CampusCoin_bleu.png" alt="Logo CampusCoin">
+      <h1 class="logo">CampusCoin</h1>
+    </div>
+
+    <form #inscriptionForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 mt-2">
+          <div class="form-group">
+            <label for="nom">Nom:</label>
+            <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="nom" required>
+            <!-- <div *ngIf="nom.invalid && (nom.dirty || nom.touched)" class="alert alert-danger">
+                      <div *ngIf="nom.errors.required">
+                        Le nom est obligatoire.
+                      </div>
+                    </div> -->
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 mt-2">
+          <div class="form-group">
+            <label for="prenom">Prénom:</label>
+            <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="prenom" required>
+            <!-- <div *ngIf="prenom.invalid && (prenom.dirty || prenom.touched)" class="alert alert-danger">
+                      <div *ngIf="prenom.errors.required">
+                        Le prénom est obligatoire.
+                      </div>
+                    </div> -->
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required email>
+            <!-- <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                        <div *ngIf="email.errors.required">
+                          L'email est obligatoire.
+                        </div>
+                        <div *ngIf="email.errors.email">
+                          L'email doit être valide. -->
+            <!-- </div> -->
+            <!-- </div> -->
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 mt-2">
+          <div class="form-group">
+            <label for="password">Mot de passe:</label>
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required
+              minlength="6">
+            <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger"> -->
+            <!-- <div *ngIf="password.errors.required">
+                          Le mot de passe est obligatoire.
+                        </div> -->
+            <!-- <div *ngIf="password.errors.minlength">
+                          Le mot de passe doit contenir au moins 6 caractères.
+                        </div> -->
+            <!-- </div> -->
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 mt-2">
+          <div class="form-group">
+            <label for="repassword">Confirmation du mot de passe:</label>
+            <!-- <input type="password" class="form-control" id="repassword" name="repassword" [(ngModel)]="repassword" required minlength="6" [compareWith]="password"> -->
+            <input type="password" class="form-control" id="repassword" name="repassword" [(ngModel)]="repassword"
+              required minlength="6">
+            <!-- <div *ngIf="repassword.invalid && (repassword.dirty || repassword.touched)" class="alert alert-danger"> -->
+            <!-- <div *ngIf="repassword.errors.required"> -->
+            <em>La confirmation du mot de passe est obligatoire.</em>
+            <!-- </div> -->
+            <!-- <div *ngIf="repassword.errors.minlength">
+                    Le mot de passe doit contenir au moins 6 caractères.
+                  </div>
+                  <div *ngIf="repassword.errors.compareWith">
+                    Les mots de passe ne correspondent pas.
+                  </div> -->
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="form__btn">
+        <button type="submit" class="btn" [disabled]="!inscriptionForm.form.valid">Ok</button>
+        <button type="button" class="btn btn-cancel ms-2" (click)="annuler()">Annuler</button>
+      </div>
+
+    </form>
+  </div>
+</section>
