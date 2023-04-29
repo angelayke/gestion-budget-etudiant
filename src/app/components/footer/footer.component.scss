@@ -1,18 +1,23 @@
 @import '../../../sass/variables';
 
-
 .mat-toolbar {
     background-color: $header;
     color: $white;
 }
 
+.mat-toolbar-row{
+    display: flex;
+    justify-content: center;
+}
+
 a {
     color: $white;
-    text-decoration: none;
-    &:hover{
-        color:$bleu;
-        font-weight: 700;
-    }
+    text-decoration: none;    
+    font-size: 14px;
+    margin: 0 10px;
+        &:hover{
+            color:$bleu;
+        }
 }
 
 @media screen and (min-width: 1024px) {
