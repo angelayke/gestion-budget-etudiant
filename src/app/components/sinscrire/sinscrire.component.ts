@@ -6,10 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sinscrire.component.scss']
 })
 export class SinscrireComponent implements OnInit {
+  nom!: string;
+  prenom!: string;
+  email!: string;
+  password!: string;
+  repassword!: string;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    console.log('Formulaire soumis');
+  }
+
+  annuler() {
+    console.log('Annuler');
   }
 
 }

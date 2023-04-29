@@ -1,3 +1,53 @@
+@import '../../../sass/variables';
+.en-tete{
+    align-items: center;
+}
+
+img{
+    max-width: 100px;
+    margin: 0.2em;
+}
+
+.logo{
+    font-size: 32px;
+    font-weight: 900;
+}
+
+h1{
+    margin: 0;
+    font-family: $font-logo !important;
+}
+
+.row{
+    margin: 1em 0;
+}
+
+.btn {
+    background-color: $bleu;
+    color: $white;
+    border: 2px solid $bleu;
+      &:hover{
+        border: 2px solid $bleu;
+        background-color: $white;
+        color: $bleu;
+      }
+}
+
+.btn-cancel{
+    background-color: $rouge;
+    color: white;
+    border: 2px solid $rouge;
+    &:hover{
+        border: 2px solid $rouge;
+        background-color: $white;
+        color: $rouge;
+    }
+}
+
+.form__btn{
+    padding: 0 1em;
+}
+
 @media screen and (min-width: 1024px) {
     
 }
