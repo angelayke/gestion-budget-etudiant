@@ -44,12 +44,13 @@ import { ProfilComponent } from './components/profil/profil.component';
 import { ProfilEditComponent } from './components/profil-edit/profil-edit.component';
 import { LiensutilesComponent } from './components/liensutiles/liensutiles.component';
 import { FloatingCalculatorButtonComponent } from './components/floating-calculator-button/floating-calculator-button.component';
+import { MainComponent } from './main/main.component';
 
 /* Modules */
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { MainComponent } from './main/main.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
@@ -87,7 +88,8 @@ import { MainComponent } from './main/main.component';
     FormsModule,
     MatButtonModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatMenuModule
   ],
   providers: [
     StorageService,
