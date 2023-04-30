@@ -22,6 +22,8 @@ export class SeconnecterComponent implements OnInit {
   }
 
   annuler() {
+    this.email = '';
+    this.password = '';
     console.log('Annuler');
   }
 

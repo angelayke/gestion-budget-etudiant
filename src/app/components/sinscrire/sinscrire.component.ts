@@ -22,6 +22,11 @@ export class SinscrireComponent implements OnInit {
   }
 
   annuler() {
+    this.nom = '';
+    this.prenom = '';
+    this.email = '';
+    this.password = '';
+    this.repassword = '';
     console.log('Annuler');
   }
 
