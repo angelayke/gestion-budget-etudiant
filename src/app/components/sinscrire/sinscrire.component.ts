@@ -12,6 +12,12 @@ export class SinscrireComponent implements OnInit {
   password!: string;
   repassword!: string;
 
+  nomValid: boolean = false;
+  prenomValid: boolean = false;
+  emailValid: boolean = false;
+  passwordValid: boolean = false;
+  repasswordValid: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -22,6 +28,11 @@ export class SinscrireComponent implements OnInit {
   }
 
   annuler() {
+    this.nom = '';
+    this.prenom = '';
+    this.email = '';
+    this.password = '';
+    this.repassword = '';
     console.log('Annuler');
   }
 
