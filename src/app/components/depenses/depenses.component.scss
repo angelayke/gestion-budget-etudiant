@@ -2,16 +2,30 @@
 
 table {
   width: 100%;
+  font-family: $font-text ;
+}
+
+th {
+  color: $noir;
+  font-weight: 600;
+
 }
 
 h1{
-    margin: 0;
+    margin: 0 0 1em 0;
     font-size: 3em;
     font-weight: 500;
+    text-align: center;
 }
 
-.mat-raised-button {
-  width: 150px;
+.up-table{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn{
+  width: 200px;
   background-color: $bleu;
   color: $white;
   border: 2px solid $bleu;
@@ -24,16 +38,57 @@ h1{
   }
 }
 
-.row{
-    text-align: center;
+a{
+  text-decoration: none;
 }
+
+ .row{
+    text-align: left;
+ }
 
 .solde {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
-@media screen and (min-width: 1024px) {}
+@media screen and (min-width: 1024px) {
+  #mobile{
+    display: none;
+  }
+}
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #mobile{
+    display: none;
+  }
+}
 
-@media screen and (max-width: 767px) {}
+@media screen and (max-width: 767px) { 
+  .align-solde{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .up-table{
+    align-items: normal;
+    flex-direction: column;
+  }
+  
+  .align-btn{
+    display: flex;
+    justify-content: right;
+  }
+
+  #desktop{
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 431px) { 
+  .btn-bottom{
+    width: 150px;
+  }
+  #desktop{
+    display: none;
+  }
+}
