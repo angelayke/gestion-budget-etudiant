@@ -24,16 +24,24 @@ h1{
 p {
     margin: 1em 0;
 }
-  
+
+
 
 @media screen and (min-width: 1024px) {
-    
+    .flex-middle{
+      display: none;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-    
+  .flex-middle{
+    display: none;
+  }
 }
 
 @media screen and (max-width: 767px) {
-    
+    .desktop{
+      display: none;
+    }
+  
 }
