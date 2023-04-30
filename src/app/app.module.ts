@@ -1,4 +1,4 @@
-/* Base angular */ 
+/* Base angular */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +15,7 @@ import { AuthService } from './services/auth.service';
 import { TokenInjectorService } from './services/token-injector.service';
 import { CalculatorService } from './services/calculator.service';
 import { FiltersService } from './services/filters.service';
+import { CalendarService } from './services/calendar.service';
 
 /* *Interceptior */
 import { TokenInterceptor } from './interceptors/token.interceptor';
@@ -48,8 +49,7 @@ import { FloatingCalculatorButtonComponent } from './components/floating-calcula
 /* Modules */
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {MatToolbarModule} from '@angular/material/toolbar';
-
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -85,7 +85,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     FormsModule,
     MatButtonModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
   ],
   providers: [
     StorageService,
@@ -94,7 +94,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     AuthService,
     FiltersService,
     CalculatorService,
-
+    CalendarService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BaseUrlInterceptor,
