@@ -1,3 +1,6 @@
+@import '../../../sass/variables';
+
+
 .floating-calculator-button {
   &__container {
     display: block;
@@ -6,4 +9,28 @@
     right: 2rem;
     z-index: 10;
   }
+}
+
+.mat-fab{
+background-color: $bleu;
+  &:hover{
+    background-color: $rouge;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+    
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    
+}
+
+@media screen and (max-width: 767px) {
+  .floating-calculator-button {
+    &__container {
+      right: 45%;
+    }
+  }
+    
 }
