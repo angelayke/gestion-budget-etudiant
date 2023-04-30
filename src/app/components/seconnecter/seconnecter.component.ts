@@ -12,6 +12,10 @@ export class SeconnecterComponent implements OnInit {
   password!: string;
   repassword!: string;
 
+
+  emailValid: boolean = false;
+  passwordValid: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {

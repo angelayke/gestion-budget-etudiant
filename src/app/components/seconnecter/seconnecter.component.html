@@ -1,25 +1,28 @@
 <section>
-    <div class="container">
-      <div class="flex-middle en-tete">
-        <img src="../../../assets/images/logo_CampusCoin_bleu.png" alt="Logo CampusCoin">
-        <h1 class="logo">CampusCoin</h1>
-      </div>
-  
-      <div class="flex-middle">
+  <div class="container">
+    <div class="flex-middle en-tete">
+      <img src="../../../assets/images/logo_CampusCoin_bleu.png" alt="Logo CampusCoin">
+      <h1 class="logo">CampusCoin</h1>
+    </div>
+
+    <div class="flex-middle">
       <form #inscriptionForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="row">
           <div class="col-lg-12">
             <div class="form-group">
               <label for="email">Email:</label>
-              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required email>
-              <!-- <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-                          <div *ngIf="email.errors.required">
-                            L'email est obligatoire.
-                          </div>
-                          <div *ngIf="email.errors.email">
-                            L'email doit être valide. -->
-              <!-- </div> -->
-              <!-- </div> -->
+              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required email
+                (blur)="emailValid = inscriptionForm?.controls?.['email']!.valid">
+              <div
+                *ngIf="!emailValid && (inscriptionForm.controls?.['email']?.dirty || inscriptionForm.controls?.['email']?.touched)"
+                class="text-danger">
+                <div *ngIf="inscriptionForm.controls?.['email']?.errors?.['required']">
+                  L'email est obligatoire.
+                </div>
+                <div *ngIf="inscriptionForm.controls?.['email']?.errors?.['email']">
+                  L'email doit être valide.
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -28,26 +31,28 @@
             <div class="form-group">
               <label for="password">Mot de passe:</label>
               <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required
-                minlength="6">
-              <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger"> -->
-              <!-- <div *ngIf="password.errors.required">
-                            Le mot de passe est obligatoire.
-                          </div> -->
-              <!-- <div *ngIf="password.errors.minlength">
-                            Le mot de passe doit contenir au moins 6 caractères.
-                          </div> -->
-              <!-- </div> -->
+                minlength="6" (blur)="passwordValid = inscriptionForm?.controls?.['password']!.valid">
+              <div
+                *ngIf="!passwordValid && (inscriptionForm.controls?.['password']?.dirty || inscriptionForm.controls?.['password']?.touched)"
+                class="text-danger">
+                <div *ngIf="inscriptionForm.controls?.['password']?.errors?.['required']">
+                  Le password est obligatoire.
+                </div>
+                <div *ngIf="inscriptionForm.controls?.['password']?.errors?.['minlength']">
+                  Le mot de passe doit contenir au moins 6 caractères.
+                </div>
+              </div>
             </div>
           </div>
-  
+
         </div>
-  
+
         <div class="form__btn">
-          <button type="submit" class="btn"  [disabled]="!inscriptionForm.form.valid">Ok</button>
+          <button type="submit" class="btn" [disabled]="!inscriptionForm.form.valid">Ok</button>
           <button type="button" class="btn btn-cancel ms-2" (click)="annuler()">Annuler</button>
         </div>
-  
+
       </form>
     </div>
-    </div>
-  </section>
+  </div>
+</section>
