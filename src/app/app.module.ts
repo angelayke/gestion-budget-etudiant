@@ -1,4 +1,4 @@
-/* Base angular */ 
+/* Base angular */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +15,7 @@ import { AuthService } from './services/auth.service';
 import { TokenInjectorService } from './services/token-injector.service';
 import { CalculatorService } from './services/calculator.service';
 import { FiltersService } from './services/filters.service';
+import { AppRouterService } from './services/app-router.service';
 
 /* *Interceptior */
 import { TokenInterceptor } from './interceptors/token.interceptor';
@@ -45,17 +46,16 @@ import { ProfilEditComponent } from './components/profil-edit/profil-edit.compon
 import { LiensutilesComponent } from './components/liensutiles/liensutiles.component';
 import { FloatingCalculatorButtonComponent } from './components/floating-calculator-button/floating-calculator-button.component';
 import { MainComponent } from './components/main/main.component';
+import { FourOFourComponent } from './components/four-o-four/four-o-four.component';
 
 /* Modules */
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
-
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -83,6 +83,7 @@ import {MatSortModule} from '@angular/material/sort';
     LiensutilesComponent,
     FloatingCalculatorButtonComponent,
     MainComponent,
+    FourOFourComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +97,7 @@ import {MatSortModule} from '@angular/material/sort';
     MatMenuModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
   ],
   providers: [
     StorageService,
@@ -105,7 +106,7 @@ import {MatSortModule} from '@angular/material/sort';
     AuthService,
     FiltersService,
     CalculatorService,
-
+    AppRouterService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BaseUrlInterceptor,
