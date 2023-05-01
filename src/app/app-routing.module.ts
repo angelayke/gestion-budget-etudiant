@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConnexionComponent } from './components/connexion/connexion.component';
 import { SinscrireComponent } from './components/sinscrire/sinscrire.component';
 import { DepensesComponent } from './components/depenses/depenses.component';
 import { RevenusComponent } from './components/revenus/revenus.component';
@@ -8,20 +7,37 @@ import { AuthGuard } from './guards/auth.guard';
 import { AccueilComponent } from './components/accueil/accueil.component';
 import { SeconnecterComponent } from './components/seconnecter/seconnecter.component';
 import { MainComponent } from './components/main/main.component';
+import { appRoutes } from 'src/constants/app-routes.constants';
+import { FourOFourComponent } from './components/four-o-four/four-o-four.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'connexion', pathMatch: 'full'},
-  {path: 'seconnecter', component: SeconnecterComponent},
-  {path: 'sinscrire', component: SinscrireComponent},
-  {path: 'accueil', component: AccueilComponent, canActivate: [AuthGuard]},
-  {path: 'main', component: MainComponent, canActivate: [AuthGuard]},
-  {path: 'depenses', component: DepensesComponent, canActivate: [AuthGuard]},
-  {path: 'revenus', component: RevenusComponent , canActivate: [AuthGuard]},
-  {path: '**', component: ConnexionComponent},
+  { path: appRoutes.index, redirectTo: appRoutes.login, pathMatch: 'full' },
+  { path: appRoutes.login, component: SeconnecterComponent },
+  { path: appRoutes.register, component: SinscrireComponent },
+  {
+    path: appRoutes.home,
+    component: AccueilComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: appRoutes.main, component: MainComponent, canActivate: [AuthGuard] },
+  {
+    path: appRoutes.expenses,
+    component: DepensesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: appRoutes.incomes,
+    component: RevenusComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: appRoutes.catchAll,
+    component: FourOFourComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
