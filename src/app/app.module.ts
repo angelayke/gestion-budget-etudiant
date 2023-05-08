@@ -16,6 +16,7 @@ import { TokenInjectorService } from './services/token-injector.service';
 import { CalculatorService } from './services/calculator.service';
 import { FiltersService } from './services/filters.service';
 import { CalendarService } from './services/calendar.service';
+import { AppRouterService } from './services/app-router.service';
 
 /* *Interceptior */
 import { TokenInterceptor } from './interceptors/token.interceptor';
@@ -46,6 +47,7 @@ import { ProfilEditComponent } from './components/profil-edit/profil-edit.compon
 import { LiensutilesComponent } from './components/liensutiles/liensutiles.component';
 import { FloatingCalculatorButtonComponent } from './components/floating-calculator-button/floating-calculator-button.component';
 import { MainComponent } from './components/main/main.component';
+import { FourOFourComponent } from './components/four-o-four/four-o-four.component';
 
 /* Modules */
 import { MatButtonModule } from '@angular/material/button';
@@ -82,6 +84,7 @@ import { MatSortModule } from '@angular/material/sort';
     LiensutilesComponent,
     FloatingCalculatorButtonComponent,
     MainComponent,
+    FourOFourComponent,
   ],
   imports: [
     BrowserModule,
@@ -105,6 +108,7 @@ import { MatSortModule } from '@angular/material/sort';
     FiltersService,
     CalculatorService,
     CalendarService,
+    AppRouterService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BaseUrlInterceptor,
