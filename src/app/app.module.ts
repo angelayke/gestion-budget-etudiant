@@ -15,6 +15,7 @@ import { AuthService } from './services/auth.service';
 import { TokenInjectorService } from './services/token-injector.service';
 import { CalculatorService } from './services/calculator.service';
 import { FiltersService } from './services/filters.service';
+import { CalendarService } from './services/calendar.service';
 import { AppRouterService } from './services/app-router.service';
 
 /* *Interceptior */
@@ -106,6 +107,7 @@ import { MatSortModule } from '@angular/material/sort';
     AuthService,
     FiltersService,
     CalculatorService,
+    CalendarService,
     AppRouterService,
     {
       provide: HTTP_INTERCEPTORS,

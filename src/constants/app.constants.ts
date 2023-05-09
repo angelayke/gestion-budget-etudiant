@@ -14,6 +14,9 @@ export const app = {
       all: '/expenses/all',
       one: '/expenses',
     },
+    config: {
+      one: '/user-config',
+    },
     codes: {
       unauthorized: 401,
     },
