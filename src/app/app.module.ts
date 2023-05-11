@@ -37,14 +37,14 @@ import { RevenusComponent } from './components/revenus/revenus.component';
 import { RevenusSemaineGraphiqueComponent } from './components/revenus-semaine-graphique/revenus-semaine-graphique.component';
 import { DepensesSemaineGraphiqueComponent } from './components/depenses-semaine-graphique/depenses-semaine-graphique.component';
 import { RevenusMoisGraphiqueComponent } from './components/revenus-mois-graphique/revenus-mois-graphique.component';
-import { DepensesMoisGraphiqueComponent } from './components/depenses-mois-graphique/depenses-mois-graphique.component';
+// import { DepensesMoisGraphiqueComponent } from './components/depenses-mois-graphique/depenses-mois-graphique.component';
 import { ProfilComponent } from './components/profil/profil.component';
 import { ProfilEditComponent } from './components/profil-edit/profil-edit.component';
 import { LiensutilesComponent } from './components/liensutiles/liensutiles.component';
 import { FloatingCalculatorButtonComponent } from './components/floating-calculator-button/floating-calculator-button.component';
 import { MainComponent } from './components/main/main.component';
 import { FourOFourComponent } from './components/four-o-four/four-o-four.component';
-import { RevenusGraphiquesComponent } from './components/revenus-graphiques/revenus-graphiques.component'; 
+import { RevenusGraphiquesComponent } from './components/revenus-graphiques/revenus-graphiques.component';
 import { DepensesGraphiquesComponent } from './components/depenses-graphiques/depenses-graphiques.component';
 
 
@@ -57,7 +57,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -79,7 +79,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     RevenusSemaineGraphiqueComponent,
     DepensesSemaineGraphiqueComponent,
     RevenusMoisGraphiqueComponent,
-    DepensesMoisGraphiqueComponent,
+    // DepensesMoisGraphiqueComponent,
     ProfilComponent,
     ProfilEditComponent,
     LiensutilesComponent,
@@ -102,7 +102,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTooltipModule
+    MatTooltipModule,
+    NgChartsModule
 
   ],
   providers: [
