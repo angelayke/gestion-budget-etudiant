@@ -49,6 +49,13 @@ h1{
     padding: 0 1em;
 }
 
+#create-user-button:disabled,
+#create-user-button[disabled]{
+  border: 0;
+  background-color: #cccccc;
+  color: #666666;
+}
+
 @media screen and (min-width: 1024px) {
     
 }
