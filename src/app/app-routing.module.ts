@@ -16,10 +16,11 @@ const routes: Routes = [
   { path: appRoutes.register, component: SinscrireComponent },
   {
     path: appRoutes.home,
-    component: AccueilComponent,
+    //component: AccueilComponent,
+    component: MainComponent,
     canActivate: [AuthGuard],
   },
-  { path: appRoutes.main, component: MainComponent, canActivate: [AuthGuard] },
+ // { path: appRoutes.main, component: MainComponent, canActivate: [AuthGuard] },
   {
     path: appRoutes.expenses,
     component: DepensesComponent,

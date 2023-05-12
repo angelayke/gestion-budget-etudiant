@@ -58,7 +58,7 @@
           <div class="form-group">
             <label for="password">Mot de passe:</label>
             <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required
-              minlength="6" (blur)="passwordValid = inscriptionForm?.controls?.['password']!.valid" ><!--ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/"-->
+              minlength="6" (blur)="passwordValid = inscriptionForm?.controls?.['password']!.valid" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/"><!---->
             <div
               *ngIf="!passwordValid && (inscriptionForm.controls?.['password']?.dirty || inscriptionForm.controls?.['password']?.touched)"
               class="text-danger">
@@ -107,7 +107,7 @@
             minlength="6" required [compareWith]="password"
               (blur)="repasswordValid = inscriptionForm?.controls?.['repassword']!.valid"> -->
             <input type="password" class="form-control" id="repassword" name="repassword" [(ngModel)]="repassword"
-            minlength="6" required (blur)="repasswordValid = inscriptionForm?.controls?.['repassword']!.valid" > <!--ng-pattern="formData.password"-->
+            minlength="6" required (blur)="repasswordValid = inscriptionForm?.controls?.['repassword']!.valid" ng-pattern="formData.password"> <!---->
             <div
               *ngIf="!repasswordValid && (inscriptionForm.controls?.['repassword']?.dirty || inscriptionForm.controls?.['repassword']?.touched)"
               class="text-danger">
@@ -120,8 +120,8 @@
               <div *ngIf="inscriptionForm.controls?.['repassword']?.errors?.['compareWith']">
                 Les mots de passe ne correspondent pas.
               </div>
-              <!--
-              <span ng-show="formData.password != formData.repassword"> Les mots de passe ne correspondent pas.</span>-->
+              
+              <span ng-show="formData.password != formData.repassword"> Les mots de passe ne correspondent pas.</span>
               <!-- <div *ngIf="inscriptionForm.submitted && inscriptionForm.controls['repassword'].hasError('passwordMismatch') ">
                 Les mots de passe ne correspondent pas.
               </div> -->
@@ -131,8 +131,8 @@
       </div>
 
       <div class="form__btn">
-        <!--
-        <button type="submit" class="btn" [disabled]="!inscriptionForm.form.valid" id="create-user-button" ng-disabled="formData.password != formData.confirmPassword" >Créer compte</button>--><!--ng-click="createUser()"-->
+  
+        <button type="submit" class="btn" [disabled]="!inscriptionForm.form.valid" id="create-user-button" ng-disabled="formData.password != formData.confirmPassword" ng-click="createUser()">Créer compte</button><!---->
       
       <button type="button" class="btn btn-cancel ms-2" (click)="annuler()">Annuler</button>
       </div>
