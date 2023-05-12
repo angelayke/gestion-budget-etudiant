@@ -34,10 +34,6 @@ import { NavComponent } from './components/nav/nav.component';
 import { CalculatriceComponent } from './components/calculatrice/calculatrice.component';
 import { DepensesComponent } from './components/depenses/depenses.component';
 import { RevenusComponent } from './components/revenus/revenus.component';
-import { RevenusSemaineComponent } from './components/revenus-semaine/revenus-semaine.component';
-import { DepensesSemaineComponent } from './components/depenses-semaine/depenses-semaine.component';
-import { RevenusMoisComponent } from './components/revenus-mois/revenus-mois.component';
-import { DepensesMoisComponent } from './components/depenses-mois/depenses-mois.component';
 import { RevenusSemaineGraphiqueComponent } from './components/revenus-semaine-graphique/revenus-semaine-graphique.component';
 import { DepensesSemaineGraphiqueComponent } from './components/depenses-semaine-graphique/depenses-semaine-graphique.component';
 import { RevenusMoisGraphiqueComponent } from './components/revenus-mois-graphique/revenus-mois-graphique.component';
@@ -48,15 +44,24 @@ import { LiensutilesComponent } from './components/liensutiles/liensutiles.compo
 import { FloatingCalculatorButtonComponent } from './components/floating-calculator-button/floating-calculator-button.component';
 import { MainComponent } from './components/main/main.component';
 import { FourOFourComponent } from './components/four-o-four/four-o-four.component';
+import { RevenusGraphiquesComponent } from './components/revenus-graphiques/revenus-graphiques.component'; 
+import { DepensesGraphiquesComponent } from './components/depenses-graphiques/depenses-graphiques.component';
+
 
 /* Modules */
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
-import { MatSortModule } from '@angular/material/sort';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -71,10 +76,6 @@ import { MatSortModule } from '@angular/material/sort';
     CalculatriceComponent,
     DepensesComponent,
     RevenusComponent,
-    RevenusSemaineComponent,
-    DepensesSemaineComponent,
-    RevenusMoisComponent,
-    DepensesMoisComponent,
     RevenusSemaineGraphiqueComponent,
     DepensesSemaineGraphiqueComponent,
     RevenusMoisGraphiqueComponent,
@@ -85,6 +86,8 @@ import { MatSortModule } from '@angular/material/sort';
     FloatingCalculatorButtonComponent,
     MainComponent,
     FourOFourComponent,
+    RevenusGraphiquesComponent,
+    DepensesGraphiquesComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,6 +102,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTooltipModule
+
   ],
   providers: [
     StorageService,
