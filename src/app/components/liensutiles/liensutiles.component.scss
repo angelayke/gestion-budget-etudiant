@@ -1,11 +1,122 @@
+@import "../../../sass/variables";
+
+h1 {
+  margin: 0 0 1em 0;
+  font-size: 3em;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+a:link {
+  text-decoration: underline;
+  line-height: 300%;
+  font-weight: 600;
+  font-size: 2em;
+  color: $bleu;
+}
+
+ul li {
+  width: 100%;
+  margin: 0px;
+  list-style-type: none;
+}
+
+ul {
+  margin-top: 4rem;
+}
+
+.icon {
+  font-size: 25px;
+  height: 25px;
+  width: 25px;
+}
+
+i {
+  //margin-right: 10px;
+}
+
+.cegep {
+  margin-left: 5px;
+  margin-right: 15px;
+}
+
+.aide {
+  margin-left: 7px;
+  margin-right: 17px;
+}
+
+.ecopasse {
+  margin-left: 3px;
+  margin-right: 12px;
+}
+
+.residences {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+.stationemment {
+  margin-left: 3px;
+  margin-right: 15px;
+}
+
+.demandes {
+  //margin-left: -2px;
+  margin-right: 10px;
+}
+
 @media screen and (min-width: 1024px) {
-    
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-    
 }
 
 @media screen and (max-width: 767px) {
-    
+  a:link {
+    text-decoration: underline;
+    line-height: 200%;
+    font-weight: 500;
+    font-size: 1.2em;
+    color: $bleu;
+  }
+
+  ul {
+    margin-top: 1rem;
+  }
+
+  .icon {
+    font-size: 15px;
+    height: 15px;
+    width: 15px;
+  }
+
+  .cegep {
+    margin-right: 8px;
+  }
+
+  .aide {
+    margin-right: 10px;
+  }
+
+  .ecopasse {
+    margin-right: 10px;
+  }
+
+  .residences {
+    margin-right: 10px;
+  }
+
+  .stationemment {
+    margin-right: 10px;
+  }
+
+  .demandes {
+    margin-right: 10px;
+  }
 }

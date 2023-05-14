@@ -44,24 +44,19 @@ import { LiensutilesComponent } from './components/liensutiles/liensutiles.compo
 import { FloatingCalculatorButtonComponent } from './components/floating-calculator-button/floating-calculator-button.component';
 import { MainComponent } from './components/main/main.component';
 import { FourOFourComponent } from './components/four-o-four/four-o-four.component';
-import { RevenusGraphiquesComponent } from './components/revenus-graphiques/revenus-graphiques.component'; 
+import { RevenusGraphiquesComponent } from './components/revenus-graphiques/revenus-graphiques.component';
 import { DepensesGraphiquesComponent } from './components/depenses-graphiques/depenses-graphiques.component';
-
 
 /* Modules */
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
-
-
-
-
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -102,8 +97,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTooltipModule
-
+    MatTooltipModule,
+    MatListModule,
   ],
   providers: [
     StorageService,
