@@ -1,9 +1,12 @@
+@import '../../../sass/variables';
+
 .calculator {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 2fr repeat(5, 1fr);
   padding: 1rem;
   max-width: min(100%, 500px);
+  border-radius: 15px;
 
   .displays {
     display: flex;
@@ -12,13 +15,20 @@
     gap: 0.3rem;
     grid-column: 1 / -1;
     grid-row: 1;
-    background-color: #000;
-    color: #fff;
+    // background-color: #000;
+    background-color: $noir;
+    // color: #fff;
+    color: $bg;
+      &:hover {
+        color: $white;
+      }
     font-size: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 
     .display {
       width: 100%;
@@ -42,11 +52,17 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     align-items: center;
-    background-color: #000;
-    color: #fff;
+    // background-color: #000;
+    background-color: $noir;
+    // color: #fff;
+    color: $bg;
+      &:hover {
+        color: $white;
+        }
     font-size: 2rem;
     padding: 1rem;
     padding-top: 0;
+    border-bottom-right-radius: 12px;
 
     .operator {
       width: 100%;
@@ -72,9 +88,39 @@
     grid-template-rows: repeat(4, 1fr);
     grid-gap: 0.3rem;
 
-    background-color: #000;
+    // background-color: #000;
+    background-color: $noir;
     padding: 1rem;
     padding-top: 0;
     padding-right: 0;
+    border-bottom-left-radius: 12px;
   }
+
+  .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+    background-color: $bleu;
+      &:hover {
+        border: 2px solid $bleu;
+        background-color: $white;
+        color: $bleu;
+      }
+  }
+
+  .mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+    background-color: $rouge;
+      &:hover {
+        border: 2px solid $rouge;
+        background-color: $white;
+        color: $rouge;
+      }
+  }
+
+  .mat-flat-button.mat-warn, .mat-raised-button.mat-warn, .mat-fab.mat-warn, .mat-mini-fab.mat-warn {
+    background-color: $rouge;
+      &:hover {
+        border: 2px solid $rouge;
+        background-color: $white;
+        color: $rouge;
+      }
+  }
+
 }
