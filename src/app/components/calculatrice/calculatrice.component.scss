@@ -15,9 +15,7 @@
     gap: 0.3rem;
     grid-column: 1 / -1;
     grid-row: 1;
-    // background-color: #000;
     background-color: $noir;
-    // color: #fff;
     color: $bg;
       &:hover {
         color: $white;
@@ -52,9 +50,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     align-items: center;
-    // background-color: #000;
     background-color: $noir;
-    // color: #fff;
     color: $bg;
       &:hover {
         color: $white;
@@ -88,7 +84,6 @@
     grid-template-rows: repeat(4, 1fr);
     grid-gap: 0.3rem;
 
-    // background-color: #000;
     background-color: $noir;
     padding: 1rem;
     padding-top: 0;
