@@ -9,11 +9,14 @@ import { SeconnecterComponent } from './components/seconnecter/seconnecter.compo
 import { MainComponent } from './components/main/main.component';
 import { appRoutes } from 'src/constants/app-routes.constants';
 import { FourOFourComponent } from './components/four-o-four/four-o-four.component';
+import { CalculatriceComponent } from './components/calculatrice/calculatrice.component';
 
 const routes: Routes = [
   { path: appRoutes.index, redirectTo: appRoutes.login, pathMatch: 'full' },
   { path: appRoutes.login, component: SeconnecterComponent },
   { path: appRoutes.register, component: SinscrireComponent },
+  { path: 'calculator', component: CalculatriceComponent },
+
   {
     path: appRoutes.home,
     component: AccueilComponent,

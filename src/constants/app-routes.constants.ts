@@ -5,6 +5,7 @@ export const appRoutes = {
   expenses: 'expenses',
   incomes: 'incomes',
   home: 'home',
+  calculator: 'calculator',
   catchAll: '**',
   index: '',
 };
