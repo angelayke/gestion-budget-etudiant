@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
@@ -44,7 +46,7 @@ import { LiensutilesComponent } from './components/liensutiles/liensutiles.compo
 import { FloatingCalculatorButtonComponent } from './components/floating-calculator-button/floating-calculator-button.component';
 import { MainComponent } from './components/main/main.component';
 import { FourOFourComponent } from './components/four-o-four/four-o-four.component';
-import { RevenusGraphiquesComponent } from './components/revenus-graphiques/revenus-graphiques.component'; 
+import { RevenusGraphiquesComponent } from './components/revenus-graphiques/revenus-graphiques.component';
 import { DepensesGraphiquesComponent } from './components/depenses-graphiques/depenses-graphiques.component';
 
 
@@ -57,6 +59,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { FormulaireDepensesComponent } from './components/formulaire-depenses/formulaire-depenses.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 
 
@@ -88,6 +92,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     FourOFourComponent,
     RevenusGraphiquesComponent,
     DepensesGraphiquesComponent,
+    FormulaireDepensesComponent,
+    ConfirmDialogComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -102,7 +109,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ReactiveFormsModule,
+    MatDialogModule
 
   ],
   providers: [

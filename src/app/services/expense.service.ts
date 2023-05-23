@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Expense } from '../interfaces/expense.interface';
 import { AuthService } from './auth.service';
 import { app } from 'src/constants/app.constants';
+import { CreateExpenseDto } from 'src/dto/create-expense.dto';
 
 @Injectable({
   providedIn: 'root',
@@ -24,4 +25,18 @@ export class ExpenseService {
   getExpense(id: string): Observable<Expense> {
     return this.http.get<Expense>(`${this.urls.one}/${id}`);
   }
+
+  addExpense(expense: Omit<CreateExpenseDto, "user">): Observable<Expense> {
+    return this.http.post<Expense>(`${this.urls.one}`, { ...expense, user: this.userId });
+  }
+
+  updateExpense(expense: Expense): Observable<Expense> {
+    const expenseId = expense._id;
+    return this.http.put<Expense>(`${this.urls.one}/${expenseId}`, expense);
+  }
+
+  deleteExpense(expenseId: string): Observable<void> {
+    return this.http.delete<void>(`${this.urls.one}/${expenseId}`)
+  }
+
 }
