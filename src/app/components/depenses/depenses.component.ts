@@ -5,7 +5,9 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource} from '@angular/material/table';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import { ExpenseService } from 'src/app/services/expense.service';
-
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { FormulaireDepensesComponent } from '../formulaire-depenses/formulaire-depenses.component';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
 export interface Expense {
   date: string;
@@ -40,7 +42,7 @@ export class DepensesComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
 
-  constructor(private _liveAnnouncer: LiveAnnouncer, private expenseService: ExpenseService) {
+  constructor(private _liveAnnouncer: LiveAnnouncer, private expenseService: ExpenseService, private dialog: MatDialog) {
     // this.dataSource = new MatTableDataSource()
    }
 
@@ -79,6 +81,51 @@ export class DepensesComponent implements OnInit, AfterViewInit {
     } else {
       this._liveAnnouncer.announce('Sorting cleared');
     }
+  }
+
+  openExpenseDialog(expense?: Expense): void {
+    const dialogRef = this.dialog.open(FormulaireDepensesComponent, {
+      data: expense ? {mode: 'edit', expense} : { mode: 'add' },
+      width: '800px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result && result.mode === 'add'){
+        console.log('La dépense a été ajoutée:', result.expense);
+        // this.getExpense();
+      } else if (result && result.mode === 'edit') {
+        console.log('La dépense a été modifiée', result.expense);
+      } else {
+        console.error('Une erreur s\'est produite lors du traitement de la dépense.')
+
+      }
+
+    });
+  }
+
+  confirmDeleteExpense(expenseId: string): void {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '500px',
+      data: 'Êtes-vous sûr de vouloir supprimer cette dépense ?'
+    });
+
+    dialogRef.afterClosed().subscribe((result)=>{
+      if(result) {
+        this.deleteExpense(expenseId)
+      }
+    })
+  }
+
+
+  deleteExpense(expenseId: string): void {
+    this.expenseService.deleteExpense(expenseId).subscribe(()=>{
+      console.log(`La dépense avec l'ID ${expenseId} a été supprimée avec succès.`);
+
+    },
+    (error)=>{
+      console.error(`Une erreur s'est produite lors de la suppression de la dépense avec l'ID ${expenseId}.`, error )
+    }
+    )
   }
 
 }
