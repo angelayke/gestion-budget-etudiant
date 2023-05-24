@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
@@ -56,7 +58,17 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
+
 import { MatListModule } from '@angular/material/list';
+
+import { FormulaireDepensesComponent } from './components/formulaire-depenses/formulaire-depenses.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -83,6 +95,9 @@ import { MatListModule } from '@angular/material/list';
     FourOFourComponent,
     RevenusGraphiquesComponent,
     DepensesGraphiquesComponent,
+    FormulaireDepensesComponent,
+    ConfirmDialogComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -99,6 +114,9 @@ import { MatListModule } from '@angular/material/list';
     MatSortModule,
     MatTooltipModule,
     MatListModule,
+    ReactiveFormsModule,
+    MatDialogModule
+
   ],
   providers: [
     StorageService,
