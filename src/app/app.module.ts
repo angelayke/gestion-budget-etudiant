@@ -49,18 +49,21 @@ import { FourOFourComponent } from './components/four-o-four/four-o-four.compone
 import { RevenusGraphiquesComponent } from './components/revenus-graphiques/revenus-graphiques.component';
 import { DepensesGraphiquesComponent } from './components/depenses-graphiques/depenses-graphiques.component';
 
-
 /* Modules */
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatSortModule} from '@angular/material/sort';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
+
+import { MatListModule } from '@angular/material/list';
+
 import { FormulaireDepensesComponent } from './components/formulaire-depenses/formulaire-depenses.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+
 
 
 
@@ -110,6 +113,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     MatPaginatorModule,
     MatSortModule,
     MatTooltipModule,
+    MatListModule,
     ReactiveFormsModule,
     MatDialogModule
 
