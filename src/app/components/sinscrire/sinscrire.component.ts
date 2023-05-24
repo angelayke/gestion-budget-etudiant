@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-sinscrire',
   templateUrl: './sinscrire.component.html',
-  styleUrls: ['./sinscrire.component.scss']
+  styleUrls: ['./sinscrire.component.scss'],
 })
 export class SinscrireComponent implements OnInit {
   nom!: string;
@@ -18,13 +19,18 @@ export class SinscrireComponent implements OnInit {
   passwordValid: boolean = false;
   repasswordValid: boolean = false;
 
-  constructor() { }
+  constructor(private readonly authService: AuthService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     console.log('Formulaire soumis');
+    this.authService.register({
+      username: this.email,
+      name: this.prenom,
+      last_name: this.nom,
+      password: this.password,
+    });
   }
 
   annuler() {
@@ -35,5 +41,4 @@ export class SinscrireComponent implements OnInit {
     this.repassword = '';
     console.log('Annuler');
   }
-
 }
