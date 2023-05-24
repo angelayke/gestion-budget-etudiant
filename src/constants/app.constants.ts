@@ -14,6 +14,10 @@ export const app = {
       all: '/expenses/all',
       one: '/expenses',
     },
+    // profil: {
+    //   profil: '/profil',
+
+    // },
     config: {
       one: '/user-config',
     },

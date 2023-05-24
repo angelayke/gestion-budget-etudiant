@@ -5,26 +5,17 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource} from '@angular/material/table';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import { ExpenseService } from 'src/app/services/expense.service';
+
+import { Expense } from '../../interfaces/expense.interface'
+
+
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FormulaireDepensesComponent } from '../formulaire-depenses/formulaire-depenses.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 
-export interface Expense {
-  date: string;
-  amount: number;
-}
 
-const EXPENSE_DATA: Expense[] = [
-  {date:'03-03-2023', amount: 368.00},
-  {date:'15-02-2023', amount: 212.00},
-  {date:'01-02-2023', amount: 455.00},
-  {date:'16-01-2023', amount: 200.00},
-  {date:'02-01-2023', amount: 375.00},
-  {date:'17-12-2022', amount: 425.00},
-  {date:'05-12-2022', amount: 305.00},
-  {date:'15-11-2022', amount: 325.00},
-  {date:'01-11-2022', amount: 300.00},
-];
+
+
 
 @Component({
   selector: 'app-depenses',
@@ -34,7 +25,8 @@ const EXPENSE_DATA: Expense[] = [
 
 export class DepensesComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['date', 'amount', 'actions'];
-  dataSource = new MatTableDataSource<Expense>(EXPENSE_DATA);
+  // dataSource = new MatTableDataSource<Expense>(EXPENSE_DATA);
+  dataSourceExpenses = new MatTableDataSource<Expense>();
 
   expenses: Expense[] = [];
 
@@ -47,26 +39,27 @@ export class DepensesComponent implements OnInit, AfterViewInit {
    }
 
   ngOnInit(): void {
-    // this.getExpense()
+    this.getExpense()
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator.firstPage();
+    this.dataSourceExpenses.paginator = this.paginator;
+    this.dataSourceExpenses.sort = this.sort;
+    this.dataSourceExpenses.paginator.firstPage();
 
   }
 
-// getExpense(){
-//     this.expenseService.getExpenses().subscribe((expenses) => {
-//       // this.expenses = expenses;
-//       this.dataSource = new MatTableDataSource(this.expenses);
-//       this.dataSource.paginator = this.paginator;
-//       this.dataSource.sort = this.sort;
-//       console.log(this.dataSource.data)
+getExpense(){
+    this.expenseService.getExpenses().subscribe((expenses) => {
+      this.expenses = expenses;
+      this.dataSourceExpenses.data = this.expenses;
+      this.dataSourceExpenses = new MatTableDataSource(this.expenses);
+      this.dataSourceExpenses.paginator = this.paginator;
+      this.dataSourceExpenses.sort = this.sort;
+      console.log(this.dataSourceExpenses.data)
 
-//   });
-// }
+  });
+}
 
 
 

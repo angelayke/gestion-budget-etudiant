@@ -9,6 +9,8 @@ import { SeconnecterComponent } from './components/seconnecter/seconnecter.compo
 import { MainComponent } from './components/main/main.component';
 import { appRoutes } from 'src/constants/app-routes.constants';
 import { FourOFourComponent } from './components/four-o-four/four-o-four.component';
+import { ProfilComponent } from './components/profil/profil.component';
+
 
 const routes: Routes = [
   { path: appRoutes.index, redirectTo: appRoutes.login, pathMatch: 'full' },
@@ -20,6 +22,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: appRoutes.main, component: MainComponent, canActivate: [AuthGuard] },
+  {
+   path: appRoutes.profil,
+   component: ProfilComponent,
+   canActivate: [AuthGuard]
+  },
   {
     path: appRoutes.expenses,
     component: DepensesComponent,
