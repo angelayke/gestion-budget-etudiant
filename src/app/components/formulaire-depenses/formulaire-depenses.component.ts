@@ -14,17 +14,19 @@ import { CreateExpenseDto } from 'src/dto/create-expense.dto';
 export class FormulaireDepensesComponent implements OnInit {
 
   expenseForm!: FormGroup;
+
   constructor(private formBuilder: FormBuilder, private expenseService: ExpenseService, private router: Router) { }
 
   ngOnInit(): void {
     this.initializeForm();
+
   }
 
   initializeForm(): void {
-   this.expenseForm = this.formBuilder.group({
-    amount: ['', Validators.required],
-    date: ['', Validators.required]
-   });
+     this.expenseForm = this.formBuilder.group({
+      amount: ['', Validators.required],
+      date: ['', Validators.required]
+     });
   }
 
   addExpense(): void {
@@ -40,15 +42,13 @@ export class FormulaireDepensesComponent implements OnInit {
         console.log(data)
         this.expenseForm.reset();
         this.router.navigate(['../expenses'])
-
       },
-      error => {
-        console.error(error)
-      }
+        error => {
+          console.error(error);
+        }
       );
     }
-  }
-
+    }
 
   annuler(){
     this.expenseForm.reset()

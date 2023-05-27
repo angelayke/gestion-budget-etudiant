@@ -4,6 +4,7 @@ export const appRoutes = {
   register: 'register',
   profil: 'profil',
   expenses: 'expenses',
+  editExpenses: 'expenses/:expenseId',
   incomes: 'incomes',
   home: 'home',
   catchAll: '**',
