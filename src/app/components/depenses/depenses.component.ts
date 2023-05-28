@@ -25,9 +25,6 @@ export class DepensesComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ['date', 'amount', 'actions'];
 
-
-  displayedColumns: string[] = ['date', 'amount','actions'];
-
   dataSourceExpenses = new MatTableDataSource<Expense>();
 
   expenses: Expense[] = [];
@@ -38,7 +35,7 @@ export class DepensesComponent implements OnInit, AfterViewInit {
 
 
 
-  constructor(private _liveAnnouncer: LiveAnnouncer, private expenseService: ExpenseService, private dialog: MatDialog) {
+
 
   constructor(private _liveAnnouncer: LiveAnnouncer,
     private expenseService: ExpenseService,
@@ -136,3 +133,4 @@ getExpenses(){
   }
 
 }
+

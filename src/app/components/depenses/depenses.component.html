@@ -46,8 +46,7 @@
 
 
                 <button class="btn-edit" mat-icon-button matTooltip="Modifier dépense" [routerLink]="['/expenses', element._id]"><mat-icon>edit</mat-icon></button>
-                <button class="btn-delete"  mat-icon-button matTooltip="Supprimer dépense" (click)="confirmDeleteExpense(element.expenseId)"><mat-icon>delete</mat-icon></button>
-             
+
                 <button class="btn-delete"  mat-icon-button matTooltip="Supprimer dépense" (click)="confirmDeleteExpense(element._id)"><mat-icon>delete</mat-icon></button>
 
               </td>
