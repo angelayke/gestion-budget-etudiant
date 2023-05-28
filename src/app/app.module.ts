@@ -68,8 +68,6 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
 
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,7 +94,8 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     RevenusGraphiquesComponent,
     DepensesGraphiquesComponent,
     FormulaireDepensesComponent,
-    ConfirmDialogComponent,
+    ConfirmDialogComponent
+
 
   ],
   imports: [
