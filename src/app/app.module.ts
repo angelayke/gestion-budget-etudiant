@@ -69,8 +69,6 @@ import { FormulaireUpdateDepenseComponent } from './components/formulaire-update
 
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,8 +95,13 @@ import { FormulaireUpdateDepenseComponent } from './components/formulaire-update
     RevenusGraphiquesComponent,
     DepensesGraphiquesComponent,
     FormulaireDepensesComponent,
+
     ConfirmDialogComponent,
     FormulaireUpdateDepenseComponent,
+
+    ConfirmDialogComponent
+
+
 
   ],
   imports: [

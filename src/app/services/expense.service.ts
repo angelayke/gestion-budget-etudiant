@@ -23,8 +23,8 @@ export class ExpenseService {
     return this.http.get<Expense[]>(`${this.urls.all}/${this.userId}`);
   }
 
-  getExpense(id: string): Observable<Expense> {
-    return this.http.get<Expense>(`${this.urls.one}/${id}`);
+  getExpense(expenseId: string): Observable<Expense> {
+    return this.http.get<Expense>(`${this.urls.one}/${expenseId}`);
   }
 
   addExpense(expense: Omit<CreateExpenseDto, "user">): Observable<Expense> {
@@ -32,13 +32,16 @@ export class ExpenseService {
   }
 
 
+
+
   updateExpense(expenseId: string, expense: Omit<UpdateExpenseDto, "user">): Observable<Expense> {
     return this.http.put<Expense>(`${this.urls.one}/${expenseId}`, { ...expense, user: this.userId });
   }
 
 
-  deleteExpense(expenseId: string): Observable<void> {
-    return this.http.delete<void>(`${this.urls.one}/${expenseId}`)
+  deleteExpense(expenseId: string): Observable<Expense> {
+    return this.http.delete<Expense>(`${this.urls.one}/${expenseId}`)
+
   }
 
 }
