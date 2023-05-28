@@ -25,7 +25,7 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 
 export class DepensesComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['date', 'amount', 'actions'];
-  // dataSource = new MatTableDataSource<Expense>(EXPENSE_DATA);
+
   dataSourceExpenses = new MatTableDataSource<Expense>();
 
   expenses: Expense[] = [];
@@ -35,7 +35,7 @@ export class DepensesComponent implements OnInit, AfterViewInit {
 
 
   constructor(private _liveAnnouncer: LiveAnnouncer, private expenseService: ExpenseService, private dialog: MatDialog) {
-    // this.dataSource = new MatTableDataSource()
+
    }
 
   ngOnInit(): void {

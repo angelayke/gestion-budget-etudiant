@@ -63,6 +63,7 @@ import { MatListModule } from '@angular/material/list';
 
 import { FormulaireDepensesComponent } from './components/formulaire-depenses/formulaire-depenses.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { FormulaireUpdateDepenseComponent } from './components/formulaire-update-depense/formulaire-update-depense.component';
 
 
 
@@ -97,6 +98,7 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     DepensesGraphiquesComponent,
     FormulaireDepensesComponent,
     ConfirmDialogComponent,
+    FormulaireUpdateDepenseComponent,
 
   ],
   imports: [
