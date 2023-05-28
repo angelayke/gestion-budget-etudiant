@@ -5,13 +5,11 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource} from '@angular/material/table';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
 import { ExpenseService } from 'src/app/services/expense.service';
-
 import { Expense } from '../../interfaces/expense.interface'
-
-
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FormulaireDepensesComponent } from '../formulaire-depenses/formulaire-depenses.component';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { AppRouterService } from 'src/app/services/app-router.service';
 
 
 
@@ -24,22 +22,34 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 })
 
 export class DepensesComponent implements OnInit, AfterViewInit {
+
   displayedColumns: string[] = ['date', 'amount', 'actions'];
-  // dataSource = new MatTableDataSource<Expense>(EXPENSE_DATA);
+
+
+  displayedColumns: string[] = ['date', 'amount','actions'];
+
   dataSourceExpenses = new MatTableDataSource<Expense>();
 
   expenses: Expense[] = [];
+
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
 
+
   constructor(private _liveAnnouncer: LiveAnnouncer, private expenseService: ExpenseService, private dialog: MatDialog) {
-    // this.dataSource = new MatTableDataSource()
+
+  constructor(private _liveAnnouncer: LiveAnnouncer,
+    private expenseService: ExpenseService,
+    private dialog: MatDialog,
+    private routerService: AppRouterService) {
+
+
    }
 
   ngOnInit(): void {
-    this.getExpense()
+    this.getExpenses();
   }
 
   ngAfterViewInit() {
@@ -49,7 +59,7 @@ export class DepensesComponent implements OnInit, AfterViewInit {
 
   }
 
-getExpense(){
+getExpenses(){
     this.expenseService.getExpenses().subscribe((expenses) => {
       this.expenses = expenses;
       this.dataSourceExpenses.data = this.expenses;
@@ -76,27 +86,24 @@ getExpense(){
     }
   }
 
+
   openExpenseDialog(expense?: Expense): void {
-    const dialogRef = this.dialog.open(FormulaireDepensesComponent, {
-      data: expense ? {mode: 'edit', expense} : { mode: 'add' },
+      const dialogRef = this.dialog.open(FormulaireDepensesComponent, {
+      data: expense,
       width: '800px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result && result.mode === 'add'){
+      if(result){
         console.log('La dépense a été ajoutée:', result.expense);
-        // this.getExpense();
-      } else if (result && result.mode === 'edit') {
-        console.log('La dépense a été modifiée', result.expense);
+        this.getExpenses();
       } else {
         console.error('Une erreur s\'est produite lors du traitement de la dépense.')
-
       }
-
     });
   }
 
-  confirmDeleteExpense(expenseId: string): void {
+  confirmDeleteExpense(expenseId: string) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '500px',
       data: 'Êtes-vous sûr de vouloir supprimer cette dépense ?'
@@ -106,19 +113,26 @@ getExpense(){
       if(result) {
         this.deleteExpense(expenseId)
       }
-    })
+    });
   }
 
 
-  deleteExpense(expenseId: string): void {
-    this.expenseService.deleteExpense(expenseId).subscribe(()=>{
+  deleteExpense(expenseId: string) {
+    this.expenseService.deleteExpense(expenseId).subscribe(()=> {
       console.log(`La dépense avec l'ID ${expenseId} a été supprimée avec succès.`);
-
+      this.getExpenses();
     },
-    (error)=>{
-      console.error(`Une erreur s'est produite lors de la suppression de la dépense avec l'ID ${expenseId}.`, error )
+    (error)=> {
+      console.error(`Une erreur s'est produite lors de la suppression de la dépense avec l'ID ${expenseId}.`,
+       error
+       );
+
     }
-    )
+    );
+  }
+
+  editExpense(id: string) {
+    this.routerService.goToEditExpense(id)
   }
 
 }

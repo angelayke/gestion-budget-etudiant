@@ -34,6 +34,10 @@ export class AppRouterService {
     this.router.navigate([this.routes.expenses]);
   }
 
+  goToEditExpense(id: string) {
+    this.router.navigate([this.routes.expenses, id]);
+  }
+
   goToExpense(id: string) {
     this.router.navigate([this.routes.expenses, id]);
   }
