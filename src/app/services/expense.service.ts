@@ -31,12 +31,17 @@ export class ExpenseService {
     return this.http.post<Expense>(`${this.urls.one}`, { ...expense, user: this.userId });
   }
 
+
+
+
   updateExpense(expenseId: string, expense: Omit<UpdateExpenseDto, "user">): Observable<Expense> {
     return this.http.put<Expense>(`${this.urls.one}/${expenseId}`, { ...expense, user: this.userId });
   }
 
+
   deleteExpense(expenseId: string): Observable<Expense> {
     return this.http.delete<Expense>(`${this.urls.one}/${expenseId}`)
+
   }
 
 }

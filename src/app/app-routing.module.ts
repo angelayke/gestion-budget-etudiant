@@ -10,7 +10,9 @@ import { MainComponent } from './components/main/main.component';
 import { appRoutes } from 'src/constants/app-routes.constants';
 import { FourOFourComponent } from './components/four-o-four/four-o-four.component';
 import { ProfilComponent } from './components/profil/profil.component';
+import { FormulaireUpdateDepenseComponent } from './components/formulaire-update-depense/formulaire-update-depense.component';
 import { FormulaireDepensesComponent } from './components/formulaire-depenses/formulaire-depenses.component';
+
 
 
 const routes: Routes = [
@@ -27,6 +29,11 @@ const routes: Routes = [
    path: appRoutes.profil,
    component: ProfilComponent,
    canActivate: [AuthGuard]
+  },
+  {
+    path: `${appRoutes.expenses}/:id`,
+    component: FormulaireUpdateDepenseComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: appRoutes.expenses,

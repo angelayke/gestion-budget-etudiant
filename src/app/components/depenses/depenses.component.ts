@@ -22,7 +22,12 @@ import { AppRouterService } from 'src/app/services/app-router.service';
 })
 
 export class DepensesComponent implements OnInit, AfterViewInit {
+
+  displayedColumns: string[] = ['date', 'amount', 'actions'];
+
+
   displayedColumns: string[] = ['date', 'amount','actions'];
+
   dataSourceExpenses = new MatTableDataSource<Expense>();
 
   expenses: Expense[] = [];
@@ -32,10 +37,14 @@ export class DepensesComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
 
+
+  constructor(private _liveAnnouncer: LiveAnnouncer, private expenseService: ExpenseService, private dialog: MatDialog) {
+
   constructor(private _liveAnnouncer: LiveAnnouncer,
     private expenseService: ExpenseService,
     private dialog: MatDialog,
     private routerService: AppRouterService) {
+
 
    }
 
