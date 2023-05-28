@@ -48,6 +48,9 @@ import { MainComponent } from './components/main/main.component';
 import { FourOFourComponent } from './components/four-o-four/four-o-four.component';
 import { RevenusGraphiquesComponent } from './components/revenus-graphiques/revenus-graphiques.component';
 import { DepensesGraphiquesComponent } from './components/depenses-graphiques/depenses-graphiques.component';
+import { FormulaireDepensesComponent } from './components/formulaire-depenses/formulaire-depenses.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+
 
 /* Modules */
 import { MatButtonModule } from '@angular/material/button';
@@ -58,15 +61,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
 import { MatListModule } from '@angular/material/list';
-
-import { FormulaireDepensesComponent } from './components/formulaire-depenses/formulaire-depenses.component';
-import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
-
-
-
-
 
 
 
