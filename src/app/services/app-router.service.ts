@@ -10,6 +10,7 @@ export class AppRouterService {
 
   public routes = appRoutes;
 
+
   goToLogin() {
     this.router.navigate([this.routes.login]);
   }
@@ -25,9 +26,16 @@ export class AppRouterService {
   goToMain() {
     this.router.navigate([this.routes.main]);
   }
+  // goToProfil() {
+  //   this.router.navigate([this.routes.profil]);
+  // }
 
   goToExpenses() {
     this.router.navigate([this.routes.expenses]);
+  }
+
+  goToEditExpense(id: string) {
+    this.router.navigate([this.routes.expenses, id]);
   }
 
   goToExpense(id: string) {

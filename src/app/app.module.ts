@@ -5,6 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
@@ -15,6 +17,7 @@ import { AuthService } from './services/auth.service';
 import { TokenInjectorService } from './services/token-injector.service';
 import { CalculatorService } from './services/calculator.service';
 import { FiltersService } from './services/filters.service';
+import { CalendarService } from './services/calendar.service';
 import { AppRouterService } from './services/app-router.service';
 
 /* *Interceptior */
@@ -33,10 +36,6 @@ import { NavComponent } from './components/nav/nav.component';
 import { CalculatriceComponent } from './components/calculatrice/calculatrice.component';
 import { DepensesComponent } from './components/depenses/depenses.component';
 import { RevenusComponent } from './components/revenus/revenus.component';
-import { RevenusSemaineComponent } from './components/revenus-semaine/revenus-semaine.component';
-import { DepensesSemaineComponent } from './components/depenses-semaine/depenses-semaine.component';
-import { RevenusMoisComponent } from './components/revenus-mois/revenus-mois.component';
-import { DepensesMoisComponent } from './components/depenses-mois/depenses-mois.component';
 import { RevenusSemaineGraphiqueComponent } from './components/revenus-semaine-graphique/revenus-semaine-graphique.component';
 import { DepensesSemaineGraphiqueComponent } from './components/depenses-semaine-graphique/depenses-semaine-graphique.component';
 import { RevenusMoisGraphiqueComponent } from './components/revenus-mois-graphique/revenus-mois-graphique.component';
@@ -47,6 +46,8 @@ import { LiensutilesComponent } from './components/liensutiles/liensutiles.compo
 import { FloatingCalculatorButtonComponent } from './components/floating-calculator-button/floating-calculator-button.component';
 import { MainComponent } from './components/main/main.component';
 import { FourOFourComponent } from './components/four-o-four/four-o-four.component';
+import { RevenusGraphiquesComponent } from './components/revenus-graphiques/revenus-graphiques.component';
+import { DepensesGraphiquesComponent } from './components/depenses-graphiques/depenses-graphiques.component';
 
 /* Modules */
 import { MatButtonModule } from '@angular/material/button';
@@ -56,6 +57,17 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+import { MatListModule } from '@angular/material/list';
+
+import { FormulaireDepensesComponent } from './components/formulaire-depenses/formulaire-depenses.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { FormulaireUpdateDepenseComponent } from './components/formulaire-update-depense/formulaire-update-depense.component';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -70,10 +82,6 @@ import { MatSortModule } from '@angular/material/sort';
     CalculatriceComponent,
     DepensesComponent,
     RevenusComponent,
-    RevenusSemaineComponent,
-    DepensesSemaineComponent,
-    RevenusMoisComponent,
-    DepensesMoisComponent,
     RevenusSemaineGraphiqueComponent,
     DepensesSemaineGraphiqueComponent,
     RevenusMoisGraphiqueComponent,
@@ -84,6 +92,17 @@ import { MatSortModule } from '@angular/material/sort';
     FloatingCalculatorButtonComponent,
     MainComponent,
     FourOFourComponent,
+    RevenusGraphiquesComponent,
+    DepensesGraphiquesComponent,
+    FormulaireDepensesComponent,
+
+    ConfirmDialogComponent,
+    FormulaireUpdateDepenseComponent,
+
+    ConfirmDialogComponent
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -98,6 +117,11 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatTooltipModule,
+    MatListModule,
+    ReactiveFormsModule,
+    MatDialogModule
+
   ],
   providers: [
     StorageService,
@@ -106,6 +130,7 @@ import { MatSortModule } from '@angular/material/sort';
     AuthService,
     FiltersService,
     CalculatorService,
+    CalendarService,
     AppRouterService,
     {
       provide: HTTP_INTERCEPTORS,

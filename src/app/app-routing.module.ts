@@ -9,6 +9,11 @@ import { SeconnecterComponent } from './components/seconnecter/seconnecter.compo
 import { MainComponent } from './components/main/main.component';
 import { appRoutes } from 'src/constants/app-routes.constants';
 import { FourOFourComponent } from './components/four-o-four/four-o-four.component';
+import { ProfilComponent } from './components/profil/profil.component';
+import { FormulaireUpdateDepenseComponent } from './components/formulaire-update-depense/formulaire-update-depense.component';
+import { FormulaireDepensesComponent } from './components/formulaire-depenses/formulaire-depenses.component';
+
+
 
 const routes: Routes = [
   { path: appRoutes.index, redirectTo: appRoutes.login, pathMatch: 'full' },
@@ -21,8 +26,23 @@ const routes: Routes = [
   },
   { path: appRoutes.main, component: MainComponent, canActivate: [AuthGuard] },
   {
+   path: appRoutes.profil,
+   component: ProfilComponent,
+   canActivate: [AuthGuard]
+  },
+  {
+    path: `${appRoutes.expenses}/:id`,
+    component: FormulaireUpdateDepenseComponent,
+    canActivate: [AuthGuard],
+  },
+  {
     path: appRoutes.expenses,
     component: DepensesComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: appRoutes.expenses + '/:id',
+    component: FormulaireDepensesComponent,
     canActivate: [AuthGuard],
   },
   {
