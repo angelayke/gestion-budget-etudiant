@@ -50,7 +50,7 @@ import { RevenusGraphiquesComponent } from './components/revenus-graphiques/reve
 import { DepensesGraphiquesComponent } from './components/depenses-graphiques/depenses-graphiques.component';
 import { FormulaireDepensesComponent } from './components/formulaire-depenses/formulaire-depenses.component';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
-
+import { FormulaireUpdateDepenseComponent } from './components/formulaire-update-depense/formulaire-update-depense.component';
 
 /* Modules */
 import { MatButtonModule } from '@angular/material/button';
@@ -62,14 +62,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatListModule } from '@angular/material/list';
-
-
-import { FormulaireDepensesComponent } from './components/formulaire-depenses/formulaire-depenses.component';
-import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
-import { FormulaireUpdateDepenseComponent } from './components/formulaire-update-depense/formulaire-update-depense.component';
-
-
-
 
 
 @NgModule({
@@ -98,14 +90,9 @@ import { FormulaireUpdateDepenseComponent } from './components/formulaire-update
     RevenusGraphiquesComponent,
     DepensesGraphiquesComponent,
     FormulaireDepensesComponent,
-
     ConfirmDialogComponent,
     FormulaireUpdateDepenseComponent,
-
     ConfirmDialogComponent
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -124,7 +111,6 @@ import { FormulaireUpdateDepenseComponent } from './components/formulaire-update
     MatListModule,
     ReactiveFormsModule,
     MatDialogModule
-
   ],
   providers: [
     StorageService,
