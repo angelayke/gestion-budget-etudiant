@@ -2,26 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import {AfterViewInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import { MatTableDataSource} from '@angular/material/table';
 import {LiveAnnouncer} from '@angular/cdk/a11y';
+import { ExpenseService } from 'src/app/services/expense.service';
+import { Expense } from '../../interfaces/expense.interface'
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { FormulaireDepensesComponent } from '../formulaire-depenses/formulaire-depenses.component';
+import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
+import { AppRouterService } from 'src/app/services/app-router.service';
 
 
-export interface AmountElement {
-  date: string;
-  montant: number;
-}
 
-const ELEMENT_DATA: AmountElement[] = [
-  {date:'03-03-2023', montant: 368.00},
-  {date:'15-02-2023', montant: 212.00},
-  {date:'01-02-2023', montant: 455.00},
-  {date:'16-01-2023', montant: 200.00},
-  {date:'02-01-2023', montant: 375.00},
-  {date:'17-12-2022', montant: 425.00},
-  {date:'05-12-2022', montant: 305.00},
-  {date:'15-11-2022', montant: 325.00},
-  {date:'01-11-2022', montant: 300.00},
-]; 
+
 
 @Component({
   selector: 'app-depenses',
@@ -29,26 +21,55 @@ const ELEMENT_DATA: AmountElement[] = [
   styleUrls: ['./depenses.component.scss']
 })
 
-export class DepensesComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+export class DepensesComponent implements OnInit, AfterViewInit {
 
-  displayedColumns: string[] = ['date', 'montant'];
-  dataSource = new MatTableDataSource<AmountElement>(ELEMENT_DATA);
+  displayedColumns: string[] = ['date', 'amount', 'actions'];
+
+  dataSourceExpenses = new MatTableDataSource<Expense>();
+
+  expenses: Expense[] = [];
+
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+
+
+
+
+
+  constructor(private _liveAnnouncer: LiveAnnouncer,
+    private expenseService: ExpenseService,
+    private dialog: MatDialog,
+    private routerService: AppRouterService) {
+
+
+   }
+
+  ngOnInit(): void {
+    this.getExpenses();
   }
 
-  constructor(private _liveAnnouncer: LiveAnnouncer) { }
+  ngAfterViewInit() {
+    this.dataSourceExpenses.paginator = this.paginator;
+    this.dataSourceExpenses.sort = this.sort;
+    this.dataSourceExpenses.paginator.firstPage();
 
-  // ngOnInit(): void {
-  // }
+  }
+
+getExpenses(){
+    this.expenseService.getExpenses().subscribe((expenses) => {
+      this.expenses = expenses;
+      this.dataSourceExpenses.data = this.expenses;
+      this.dataSourceExpenses = new MatTableDataSource(this.expenses);
+      this.dataSourceExpenses.paginator = this.paginator;
+      this.dataSourceExpenses.sort = this.sort;
+      console.log(this.dataSourceExpenses.data)
+
+  });
+}
+
+
+
 
   announceSortChange(sortState: Sort) {
     // This example uses English messages. If your application supports
@@ -62,4 +83,54 @@ export class DepensesComponent implements OnInit {
     }
   }
 
+
+  openExpenseDialog(expense?: Expense): void {
+      const dialogRef = this.dialog.open(FormulaireDepensesComponent, {
+      data: expense,
+      width: '800px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        console.log('La dépense a été ajoutée:', result.expense);
+        this.getExpenses();
+      } else {
+        console.error('Une erreur s\'est produite lors du traitement de la dépense.')
+      }
+    });
+  }
+
+  confirmDeleteExpense(expenseId: string) {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '500px',
+      data: 'Êtes-vous sûr de vouloir supprimer cette dépense ?'
+    });
+
+    dialogRef.afterClosed().subscribe((result)=>{
+      if(result) {
+        this.deleteExpense(expenseId)
+      }
+    });
+  }
+
+
+  deleteExpense(expenseId: string) {
+    this.expenseService.deleteExpense(expenseId).subscribe(()=> {
+      console.log(`La dépense avec l'ID ${expenseId} a été supprimée avec succès.`);
+      this.getExpenses();
+    },
+    (error)=> {
+      console.error(`Une erreur s'est produite lors de la suppression de la dépense avec l'ID ${expenseId}.`,
+       error
+       );
+
+    }
+    );
+  }
+
+  editExpense(id: string) {
+    this.routerService.goToEditExpense(id)
+  }
+
 }
+

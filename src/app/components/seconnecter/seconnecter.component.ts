@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { AppRouterService } from 'src/app/services/app-router.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-seconnecter',
   templateUrl: './seconnecter.component.html',
-  styleUrls: ['./seconnecter.component.scss']
+  styleUrls: ['./seconnecter.component.scss'],
 })
 export class SeconnecterComponent implements OnInit {
   nom!: string;
@@ -12,17 +14,25 @@ export class SeconnecterComponent implements OnInit {
   password!: string;
   repassword!: string;
 
-
   emailValid: boolean = false;
   passwordValid: boolean = false;
 
-  constructor() { }
+  constructor(
+    private readonly authService: AuthService,
+    private readonly appRouter: AppRouterService
+  ) {}
 
   ngOnInit(): void {
+    this.authService.$isAuthenticated.subscribe((isAuthenticated) => {
+      if (isAuthenticated) {
+        // this.appRouter.goToHome();
+        this.appRouter.goToMain();
+      }
+    });
   }
 
   onSubmit() {
-    console.log('Formulaire soumis');
+    this.authService.login({ username: this.email, password: this.password });
   }
 
   annuler() {
@@ -30,5 +40,4 @@ export class SeconnecterComponent implements OnInit {
     this.password = '';
     console.log('Annuler');
   }
-
 }
