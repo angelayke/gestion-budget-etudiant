@@ -13,6 +13,7 @@ export class NavComponent implements OnInit {
   constructor(private readonly authService: AuthService, private readonly appRouter: AppRouterService, private readonly router: Router ) { }
 
   public profilRoute = this.appRouter.routes.profil;
+  public routes = this.appRouter.routes;
 
   ngOnInit(): void {
 

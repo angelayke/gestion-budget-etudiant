@@ -8,7 +8,7 @@ import { appRoutes } from 'src/constants/app-routes.constants';
 export class AppRouterService {
   constructor(private readonly router: Router) {}
 
-  public routes = appRoutes;
+  public routes = appRoutes
 
 
   goToLogin() {
@@ -23,9 +23,9 @@ export class AppRouterService {
     this.router.navigate([this.routes.home]);
   }
 
-  goToMain() {
-    this.router.navigate([this.routes.main]);
-  }
+  // goToMain() {
+  //   this.router.navigate([this.routes.main]);
+  // }
   // goToProfil() {
   //   this.router.navigate([this.routes.profil]);
   // }

@@ -2,11 +2,12 @@
     <mat-icon>menu</mat-icon>
 </button>
 <mat-menu #beforeMenu="matMenu" xPosition="before">
-  <button mat-menu-item routerLink="/profil">Profil</button>
+  <button mat-menu-item [routerLink]=[routes.accueil]>Accueil</button>
+  <button mat-menu-item [routerLink]=[routes.profil]>Profil</button>
   <!-- <button mat-menu-item routerLink="{{ profilRoute }}">Profil</button> -->
   <!-- <a mat-menu-item routerLink="{{ profilRoute }}">Profil</a> -->
-  <button mat-menu-item routerLink="/incomes">Revenus</button>
-  <button mat-menu-item routerLink="/expenses">Dépenses</button>
+  <button mat-menu-item [routerLink]=[routes.incomes]>Revenus</button>
+  <button mat-menu-item [routerLink]=[routes.expenses]>Dépenses</button>
   <button mat-menu-item id="lien">Liens utiles</button>
   <hr>
   <button mat-menu-item (click)="logout()">Se déconnecter</button>

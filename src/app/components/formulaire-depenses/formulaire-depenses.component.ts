@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Expense } from 'src/app/interfaces/expense.interface';
+import { AppRouterService } from 'src/app/services/app-router.service';
 import { ExpenseService } from 'src/app/services/expense.service';
 import { CreateExpenseDto } from 'src/dto/create-expense.dto';
 
@@ -15,7 +16,9 @@ export class FormulaireDepensesComponent implements OnInit {
 
   expenseForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private expenseService: ExpenseService, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private expenseService: ExpenseService, private readonly appRouter: AppRouterService, private router: Router) { }
+
+  public routes = this.appRouter.routes;
 
   ngOnInit(): void {
     this.initializeForm();
@@ -41,7 +44,7 @@ export class FormulaireDepensesComponent implements OnInit {
       this.expenseService.addExpense(expense).subscribe((data) => {
         console.log(data)
         this.expenseForm.reset();
-        this.router.navigate(['../expenses'])
+        this.router.navigate(['app/expenses'])
       },
         error => {
           console.error(error);

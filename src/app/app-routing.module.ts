@@ -12,44 +12,62 @@ import { FourOFourComponent } from './components/four-o-four/four-o-four.compone
 import { ProfilComponent } from './components/profil/profil.component';
 import { FormulaireUpdateDepenseComponent } from './components/formulaire-update-depense/formulaire-update-depense.component';
 import { FormulaireDepensesComponent } from './components/formulaire-depenses/formulaire-depenses.component';
+import { ConnexionComponent } from './components/connexion/connexion.component';
 
 
 
 const routes: Routes = [
-  { path: appRoutes.index, redirectTo: appRoutes.login, pathMatch: 'full' },
+  { path: appRoutes.index, redirectTo: appRoutes.connexion, pathMatch: 'full' },
+  //changer login pour connexion et ajouter en dessous le path pour connexion 
+  //puis l'ajouter aussi dans app-route constant.ts ainsi que lien etc tout ce quon veut aller
+  //rajouter dans children: lien, editprofil
   { path: appRoutes.login, component: SeconnecterComponent },
   { path: appRoutes.register, component: SinscrireComponent },
+  { path: appRoutes.connexion, component: ConnexionComponent },
   {
     path: appRoutes.home,
-    component: AccueilComponent,
+   component: MainComponent,
     canActivate: [AuthGuard],
+    children: [
+      {
+        path: appRoutes.accueil,
+        component: AccueilComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: appRoutes.index,
+        component: AccueilComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: appRoutes.profil,
+        component: ProfilComponent,
+        canActivate: [AuthGuard]
+       },
+       {
+         path: `${appRoutes.expenses}/:id`,
+         component: FormulaireUpdateDepenseComponent,
+         canActivate: [AuthGuard],
+       },
+       {
+         path: appRoutes.expenses,
+         component: DepensesComponent,
+         canActivate: [AuthGuard],
+       },
+       {
+         path: appRoutes.expenses + '/:id',
+         component: FormulaireDepensesComponent,
+         canActivate: [AuthGuard],
+       },
+       {
+         path: appRoutes.incomes,
+         component: RevenusComponent,
+         canActivate: [AuthGuard],
+       },
+    ]
   },
-  { path: appRoutes.main, component: MainComponent, canActivate: [AuthGuard] },
-  {
-   path: appRoutes.profil,
-   component: ProfilComponent,
-   canActivate: [AuthGuard]
-  },
-  {
-    path: `${appRoutes.expenses}/:id`,
-    component: FormulaireUpdateDepenseComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: appRoutes.expenses,
-    component: DepensesComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: appRoutes.expenses + '/:id',
-    component: FormulaireDepensesComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: appRoutes.incomes,
-    component: RevenusComponent,
-    canActivate: [AuthGuard],
-  },
+  //{ path: appRoutes.main, component: MainComponent, canActivate: [AuthGuard] },
+ 
   {
     path: appRoutes.catchAll,
     component: FourOFourComponent,

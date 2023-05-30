@@ -25,8 +25,8 @@ export class SeconnecterComponent implements OnInit {
   ngOnInit(): void {
     this.authService.$isAuthenticated.subscribe((isAuthenticated) => {
       if (isAuthenticated) {
-        // this.appRouter.goToHome();
-        this.appRouter.goToMain();
+         this.appRouter.goToHome();
+        //this.appRouter.goToMain();
       }
     });
   }
