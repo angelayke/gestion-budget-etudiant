@@ -1,1 +1,15 @@
-<p>depenses-mois-graphique works!</p>
+
+
+<h2>Graphique par mois</h2>
+<div class="graphique">
+  <canvas baseChart
+  [type]="'pie'"
+  [datasets]="pieChartDatasets"
+  [labels]="pieChartLabels"
+  [options]="pieChartOptions"
+  [plugins]="pieChartPlugins"
+  [legend]="pieChartLegend">
+  </canvas>
+
+</div>
+
