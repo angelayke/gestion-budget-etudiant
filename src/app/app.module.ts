@@ -62,6 +62,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatListModule } from '@angular/material/list';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -110,7 +111,8 @@ import { MatListModule } from '@angular/material/list';
     MatTooltipModule,
     MatListModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    NgChartsModule
   ],
   providers: [
     StorageService,
