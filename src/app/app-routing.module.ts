@@ -17,10 +17,12 @@ import { ConnexionComponent } from './components/connexion/connexion.component';
 
 
 const routes: Routes = [
-  { path: appRoutes.index, redirectTo: appRoutes.connexion, pathMatch: 'full' },
+  { path: appRoutes.index, redirectTo: appRoutes.login, pathMatch: 'full' },
   //changer login pour connexion et ajouter en dessous le path pour connexion 
   //puis l'ajouter aussi dans app-route constant.ts ainsi que lien etc tout ce quon veut aller
   //rajouter dans children: lien, editprofil
+  //probleme lorsquon remplace login par connexion, on est plus capable dacceder a se connecter et sinscrire
+  //on  a perdu aussi la modification des depenses-se calquer sur ajout depense pour lui?
   { path: appRoutes.login, component: SeconnecterComponent },
   { path: appRoutes.register, component: SinscrireComponent },
   { path: appRoutes.connexion, component: ConnexionComponent },
