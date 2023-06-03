@@ -1,0 +1,25 @@
+@import '../../../sass/variables';
+
+.btn {
+  width: 150px;
+  background-color: $bleu;
+  color: $white;
+  border: 2px solid $bleu;
+    &:hover{
+      border: 2px solid $bleu;
+      background-color: $white;
+      color: $bleu;
+    }
+}
+
+
+.btn-cancel{
+  background-color: $rouge;
+  color: white;
+  border: 2px solid $rouge;
+  &:hover{
+      border: 2px solid $rouge;
+      background-color: $white;
+      color: $rouge;
+  }
+}
