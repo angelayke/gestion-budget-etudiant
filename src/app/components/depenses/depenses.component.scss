@@ -43,9 +43,9 @@ a{
   text-decoration: none;
 }
 
- .row{
+.row{
     text-align: left;
- }
+}
 
 .solde {
     font-size: 1.5em;
@@ -92,6 +92,10 @@ a{
 
   #desktop{
     display: none;
+  }
+
+  .btn__mobile{
+    text-align: center;
   }
 
 }
