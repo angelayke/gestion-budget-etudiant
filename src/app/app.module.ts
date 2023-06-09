@@ -52,6 +52,7 @@ import { FormulaireDepensesComponent } from './components/formulaire-depenses/fo
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 import { FormulaireUpdateDepenseComponent } from './components/formulaire-update-depense/formulaire-update-depense.component';
 import { FormulaireRevenusComponent } from './components/formulaire-revenus/formulaire-revenus.component';
+import { FormulaireUpdateRevenuComponent } from './components/formulaire-update-revenu/formulaire-update-revenu.component';
 
 
 
@@ -97,7 +98,8 @@ import { MatListModule } from '@angular/material/list';
     ConfirmDialogComponent,
     FormulaireUpdateDepenseComponent,
     ConfirmDialogComponent,
-    FormulaireRevenusComponent
+    FormulaireRevenusComponent,
+    FormulaireUpdateRevenuComponent
   ],
   imports: [
     BrowserModule,

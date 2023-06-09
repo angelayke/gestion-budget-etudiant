@@ -1,0 +1,17 @@
+<div class="container" *ngIf="income">
+    <h2>Modifier un revenu</h2>
+   <form [formGroup]="incomeUpdateForm" (ngSubmit)="updateIncome()">
+        <div>
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" formControlName="amount" name="amount" class="form-control">
+        </div>
+        <div>
+            <label for="date">Date:</label>
+            <input type="date" id="date" formControlName="date" name="date" class="form-control">
+        </div>
+    <div class="mt-3">
+      <a class="btn btn-primary" routerLink="/incomes"><i class="fa fa-arrow-alt-circle-left"></i>Back</a>
+      <button type="submit" [disabled]="incomeUpdateForm.invalid" class="btn btn-primary ms-2">Update</button>
+    </div>
+  </form>
+</div>
