@@ -48,6 +48,13 @@ import { MainComponent } from './components/main/main.component';
 import { FourOFourComponent } from './components/four-o-four/four-o-four.component';
 import { RevenusGraphiquesComponent } from './components/revenus-graphiques/revenus-graphiques.component';
 import { DepensesGraphiquesComponent } from './components/depenses-graphiques/depenses-graphiques.component';
+import { FormulaireDepensesComponent } from './components/formulaire-depenses/formulaire-depenses.component';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { FormulaireUpdateDepenseComponent } from './components/formulaire-update-depense/formulaire-update-depense.component';
+import { FormulaireRevenusComponent } from './components/formulaire-revenus/formulaire-revenus.component';
+import { FormulaireUpdateRevenuComponent } from './components/formulaire-update-revenu/formulaire-update-revenu.component';
+
+
 
 /* Modules */
 import { MatButtonModule } from '@angular/material/button';
@@ -58,14 +65,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
 import { MatListModule } from '@angular/material/list';
-
-import { FormulaireDepensesComponent } from './components/formulaire-depenses/formulaire-depenses.component';
-import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
-import { FormulaireUpdateDepenseComponent } from './components/formulaire-update-depense/formulaire-update-depense.component';
-
-
 
 
 
@@ -95,14 +95,11 @@ import { FormulaireUpdateDepenseComponent } from './components/formulaire-update
     RevenusGraphiquesComponent,
     DepensesGraphiquesComponent,
     FormulaireDepensesComponent,
-
     ConfirmDialogComponent,
     FormulaireUpdateDepenseComponent,
-
-    ConfirmDialogComponent
-
-
-
+    ConfirmDialogComponent,
+    FormulaireRevenusComponent,
+    FormulaireUpdateRevenuComponent
   ],
   imports: [
     BrowserModule,
@@ -121,7 +118,6 @@ import { FormulaireUpdateDepenseComponent } from './components/formulaire-update
     MatListModule,
     ReactiveFormsModule,
     MatDialogModule
-
   ],
   providers: [
     StorageService,
